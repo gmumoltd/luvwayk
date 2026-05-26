@@ -50,7 +50,8 @@ nav {
 }
 
 .nav-logo img {
-    height: 50px;
+    height: 100px;
+    width: 100px;
 }
 
 .nav-links {
@@ -1076,5 +1077,64 @@ footer ul a:hover {
     }
     .nav-links.open {
         transform: translateY(0);
+    }
+}
+
+
+/* Fix logo above the red line */
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: #fff;
+    z-index: 100;
+    position: relative;
+}
+
+.nav-logo {
+    z-index: 101;
+}
+
+
+/* Hamburger button — hidden on desktop */
+
+.hamburger {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+}
+
+
+/* Mobile styles */
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+        /* show on mobile */
+    }
+    .nav-links {
+        display: none;
+        /* hidden by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 99;
+    }
+    .nav-links.open {
+        display: flex;
+        /* shown when hamburger clicked */
+    }
+    .nav-links li {
+        margin: 10px 0;
     }
 }
