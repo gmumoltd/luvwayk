@@ -1112,15 +1112,24 @@ nav {
 
 /* Mobile styles */
 
-@media (max-width: 768px) {
+
+/* @media (max-width: 768px) {
     .hamburger {
         display: block;
         /* show on mobile */
-    }
-    .nav-links {
-        display: none;
-        /* hidden by default on mobile */
-        flex-direction: column;
+
+
+/* } */
+
+
+/* .nav-links {
+        display: none; */
+
+
+/* hidden by default on mobile */
+
+
+/* flex-direction: column;
         width: 100%;
         position: absolute;
         top: 70px;
@@ -1131,10 +1140,14 @@ nav {
         z-index: 99;
     }
     .nav-links.open {
-        display: flex;
-        /* shown when hamburger clicked */
-    }
+        display: flex; */
+
+
+/* shown when hamburger clicked */
+
+
+/* }
     .nav-links li {
         margin: 10px 0;
     }
-}
+}  */
