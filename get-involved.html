@@ -13,7 +13,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <style>
-        :root {
+         :root {
             --magenta: #d4006a;
             --orange: #f07800;
             --yellow: #f5c200;
@@ -26,15 +26,19 @@
             --text: #2d2020;
             --text-muted: #7a6060;
         }
-
-        *, *::before, *::after {
+        
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-
-        html { scroll-behavior: smooth; }
-
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             font-family: 'DM Sans', sans-serif;
             background: var(--warm-white);
@@ -42,8 +46,8 @@
             overflow-x: hidden;
             min-height: 100vh;
         }
-
         /* ─── OVERLAY BACKDROP ─── */
+        
         .page-backdrop {
             position: fixed;
             inset: 0;
@@ -53,12 +57,14 @@
             opacity: 0;
             animation: fadeInBackdrop 0.5s 0.1s forwards;
         }
-
+        
         @keyframes fadeInBackdrop {
-            to { opacity: 1; }
+            to {
+                opacity: 1;
+            }
         }
-
         /* ─── BACK BUTTON (top-left) ─── */
+        
         .back-btn {
             position: fixed;
             top: 1.5rem;
@@ -81,13 +87,13 @@
             opacity: 0;
             animation: fadeInBackdrop 0.5s 0.6s forwards;
         }
-
+        
         .back-btn:hover {
             background: var(--magenta);
             color: #fff;
         }
-
         /* ─── SLIDE-IN PANEL ─── */
+        
         .gi-panel {
             position: fixed;
             top: 0;
@@ -103,12 +109,14 @@
             transform: translateX(100%);
             animation: slideInPanel 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
         }
-
+        
         @keyframes slideInPanel {
-            to { transform: translateX(0); }
+            to {
+                transform: translateX(0);
+            }
         }
-
         /* ─── PANEL HEADER ─── */
+        
         .gi-header {
             background: linear-gradient(135deg, var(--dark) 0%, #2d1040 100%);
             padding: 3rem 2.5rem 2rem;
@@ -116,7 +124,7 @@
             overflow: hidden;
             flex-shrink: 0;
         }
-
+        
         .gi-header::before {
             content: '';
             position: absolute;
@@ -125,9 +133,9 @@
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(212,0,106,0.25) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(212, 0, 106, 0.25) 0%, transparent 70%);
         }
-
+        
         .gi-header::after {
             content: '';
             position: absolute;
@@ -136,15 +144,15 @@
             width: 160px;
             height: 160px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(240,120,0,0.2) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(240, 120, 0, 0.2) 0%, transparent 70%);
         }
-
+        
         .gi-rainbow {
             height: 5px;
             background: linear-gradient(to right, var(--magenta), var(--orange), var(--yellow), var(--green), var(--teal), var(--blue));
             margin-bottom: 1.5rem;
         }
-
+        
         .gi-header-logo {
             height: 40px;
             margin-bottom: 1.5rem;
@@ -152,7 +160,7 @@
             position: relative;
             z-index: 1;
         }
-
+        
         .gi-eyebrow {
             font-size: 0.7rem;
             letter-spacing: 0.22em;
@@ -163,7 +171,7 @@
             position: relative;
             z-index: 1;
         }
-
+        
         .gi-title {
             font-family: 'Playfair Display', serif;
             font-size: clamp(1.8rem, 4vw, 2.4rem);
@@ -173,19 +181,21 @@
             position: relative;
             z-index: 1;
         }
-
-        .gi-title span { color: var(--yellow); }
-
+        
+        .gi-title span {
+            color: var(--yellow);
+        }
+        
         .gi-subtitle {
             font-size: 0.95rem;
-            color: rgba(255,255,255,0.72);
+            color: rgba(255, 255, 255, 0.72);
             margin-top: 0.8rem;
             line-height: 1.6;
             position: relative;
             z-index: 1;
         }
-
         /* ─── TABS ─── */
+        
         .gi-tabs {
             display: flex;
             border-bottom: 2px solid var(--light-gray);
@@ -195,7 +205,7 @@
             top: 0;
             z-index: 10;
         }
-
+        
         .gi-tab {
             flex: 1;
             padding: 1rem 0.5rem;
@@ -215,31 +225,38 @@
             justify-content: center;
             gap: 0.4rem;
         }
-
-        .gi-tab:hover { color: var(--magenta); }
-
+        
+        .gi-tab:hover {
+            color: var(--magenta);
+        }
+        
         .gi-tab.active {
             color: var(--magenta);
             border-bottom-color: var(--magenta);
         }
-
         /* ─── TAB CONTENT ─── */
+        
         .gi-body {
             padding: 2rem 2.5rem;
             flex: 1;
         }
-
-        .tab-pane { display: none; }
-        .tab-pane.active { display: block; }
-
+        
+        .tab-pane {
+            display: none;
+        }
+        
+        .tab-pane.active {
+            display: block;
+        }
         /* ─── INVOLVEMENT OPTIONS ─── */
+        
         .involvement-cards {
             display: flex;
             flex-direction: column;
             gap: 1rem;
             margin-bottom: 2rem;
         }
-
+        
         .inv-card {
             background: #fff;
             border-radius: 16px;
@@ -247,7 +264,7 @@
             display: flex;
             align-items: flex-start;
             gap: 1rem;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
             border-left: 4px solid var(--light-gray);
             cursor: pointer;
             transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
@@ -255,18 +272,18 @@
             width: 100%;
             font-family: 'DM Sans', sans-serif;
         }
-
+        
         .inv-card:hover {
             border-left-color: var(--magenta);
-            box-shadow: 0 6px 24px rgba(212,0,106,0.12);
+            box-shadow: 0 6px 24px rgba(212, 0, 106, 0.12);
             transform: translateX(4px);
         }
-
+        
         .inv-card.selected {
             border-left-color: var(--magenta);
-            background: rgba(212,0,106,0.04);
+            background: rgba(212, 0, 106, 0.04);
         }
-
+        
         .inv-icon {
             width: 44px;
             height: 44px;
@@ -277,39 +294,39 @@
             font-size: 1.3rem;
             flex-shrink: 0;
         }
-
+        
         .inv-card h4 {
             font-weight: 700;
             font-size: 0.95rem;
             color: var(--dark);
             margin-bottom: 0.2rem;
         }
-
+        
         .inv-card p {
             font-size: 0.83rem;
             color: var(--text-muted);
             line-height: 1.5;
         }
-
         /* ─── FORM ─── */
+        
         .gi-form {
             display: flex;
             flex-direction: column;
             gap: 0.9rem;
         }
-
+        
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 0.9rem;
         }
-
+        
         .form-group {
             display: flex;
             flex-direction: column;
             gap: 0.35rem;
         }
-
+        
         .form-group label {
             font-size: 0.8rem;
             font-weight: 600;
@@ -317,7 +334,7 @@
             letter-spacing: 0.04em;
             text-transform: uppercase;
         }
-
+        
         .form-group input,
         .form-group select,
         .form-group textarea {
@@ -331,18 +348,18 @@
             transition: border-color 0.2s;
             resize: vertical;
         }
-
+        
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: var(--magenta);
         }
-
+        
         .form-group select {
             cursor: pointer;
         }
-
+        
         .submit-btn {
             background: linear-gradient(135deg, var(--magenta), var(--orange));
             color: #fff;
@@ -354,26 +371,26 @@
             font-weight: 700;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
-            box-shadow: 0 6px 24px rgba(212,0,106,0.3);
+            box-shadow: 0 6px 24px rgba(212, 0, 106, 0.3);
             margin-top: 0.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
         }
-
+        
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 32px rgba(212,0,106,0.4);
+            box-shadow: 0 10px 32px rgba(212, 0, 106, 0.4);
         }
-
+        
         .submit-btn:disabled {
             opacity: 0.7;
             cursor: not-allowed;
             transform: none;
         }
-
         /* ─── SUCCESS STATE ─── */
+        
         .success-msg {
             display: none;
             background: linear-gradient(135deg, #e8fff0, #f0fff8);
@@ -383,28 +400,30 @@
             text-align: center;
             margin-top: 1rem;
         }
-
-        .success-msg.show { display: block; }
-
+        
+        .success-msg.show {
+            display: block;
+        }
+        
         .success-msg .success-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
         }
-
+        
         .success-msg h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.4rem;
             color: var(--dark);
             margin-bottom: 0.5rem;
         }
-
+        
         .success-msg p {
             color: var(--text-muted);
             font-size: 0.92rem;
             line-height: 1.6;
         }
-
         /* ─── ERROR STATE ─── */
+        
         .error-msg {
             display: none;
             background: #fff5f5;
@@ -415,10 +434,12 @@
             color: #c53030;
             margin-top: 0.5rem;
         }
-
-        .error-msg.show { display: block; }
-
+        
+        .error-msg.show {
+            display: block;
+        }
         /* ─── DONATE TAB ─── */
+        
         .donate-hero {
             background: linear-gradient(135deg, var(--teal), var(--blue));
             border-radius: 20px;
@@ -427,20 +448,20 @@
             margin-bottom: 1.5rem;
             text-align: center;
         }
-
+        
         .donate-hero h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
         }
-
+        
         .donate-hero p {
             font-size: 0.9rem;
             opacity: 0.88;
             margin-bottom: 1.5rem;
             line-height: 1.6;
         }
-
+        
         .wa-donate-btn {
             display: inline-flex;
             align-items: center;
@@ -454,47 +475,47 @@
             font-size: 0.95rem;
             transition: opacity 0.2s, transform 0.2s;
         }
-
+        
         .wa-donate-btn:hover {
             opacity: 0.88;
             transform: translateY(-2px);
         }
-
+        
         .impact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1rem;
             margin-bottom: 1.5rem;
         }
-
+        
         .impact-item {
             background: #fff;
             border-radius: 14px;
             padding: 1.2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             text-align: center;
         }
-
+        
         .impact-amount {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
             font-weight: 900;
             color: var(--magenta);
         }
-
+        
         .impact-desc {
             font-size: 0.8rem;
             color: var(--text-muted);
             margin-top: 0.3rem;
             line-height: 1.4;
         }
-
+        
         .mpesa-box {
             background: var(--light-gray);
             border-radius: 14px;
             padding: 1.5rem;
         }
-
+        
         .mpesa-box h4 {
             font-weight: 700;
             font-size: 0.95rem;
@@ -504,14 +525,14 @@
             align-items: center;
             gap: 0.4rem;
         }
-
+        
         .mpesa-steps {
             list-style: none;
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
         }
-
+        
         .mpesa-steps li {
             font-size: 0.88rem;
             color: var(--text-muted);
@@ -519,7 +540,7 @@
             align-items: center;
             gap: 0.5rem;
         }
-
+        
         .mpesa-steps li::before {
             content: attr(data-n);
             width: 22px;
@@ -534,8 +555,8 @@
             justify-content: center;
             flex-shrink: 0;
         }
-
         /* ─── PRAY TAB ─── */
+        
         .prayer-card {
             background: linear-gradient(135deg, #fff8f0, #fff0f8);
             border-radius: 16px;
@@ -543,7 +564,7 @@
             border-left: 4px solid var(--orange);
             margin-bottom: 1rem;
         }
-
+        
         .prayer-card h4 {
             font-weight: 700;
             font-size: 0.95rem;
@@ -553,13 +574,13 @@
             align-items: center;
             gap: 0.5rem;
         }
-
+        
         .prayer-card p {
             font-size: 0.88rem;
             color: var(--text-muted);
             line-height: 1.6;
         }
-
+        
         .verse-box {
             background: var(--dark);
             color: #fff;
@@ -568,7 +589,7 @@
             text-align: center;
             margin-top: 1.5rem;
         }
-
+        
         .verse-box blockquote {
             font-family: 'Playfair Display', serif;
             font-size: 1.1rem;
@@ -576,13 +597,13 @@
             color: var(--yellow);
             margin-bottom: 0.8rem;
         }
-
+        
         .verse-box cite {
             font-size: 0.85rem;
-            color: rgba(255,255,255,0.6);
+            color: rgba(255, 255, 255, 0.6);
         }
-
         /* ─── FOOTER ─── */
+        
         .gi-footer {
             padding: 1.5rem 2.5rem;
             border-top: 1px solid var(--light-gray);
@@ -593,42 +614,48 @@
             flex-shrink: 0;
             gap: 1rem;
         }
-
+        
         .gi-footer p {
             font-size: 0.82rem;
             color: var(--text-muted);
         }
-
+        
         .gi-footer-links {
             display: flex;
             gap: 1rem;
         }
-
+        
         .gi-footer a {
             font-size: 0.82rem;
             color: var(--magenta);
             text-decoration: none;
             font-weight: 600;
         }
-
-        .gi-footer a:hover { text-decoration: underline; }
-
+        
+        .gi-footer a:hover {
+            text-decoration: underline;
+        }
         /* ─── SPINNER ─── */
+        
         .spinner {
             display: inline-block;
             width: 18px;
             height: 18px;
-            border: 2px solid rgba(255,255,255,0.4);
+            border: 2px solid rgba(255, 255, 255, 0.4);
             border-top-color: #fff;
             border-radius: 50%;
             animation: spin 0.7s linear infinite;
         }
-
-        @keyframes spin { to { transform: rotate(360deg); } }
-
+        
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
         /* ─── NOTE BOX (EmailJS setup) ─── */
+        
         .setup-note {
-            background: rgba(240,120,0,0.08);
+            background: rgba(240, 120, 0, 0.08);
             border: 1.5px solid var(--orange);
             border-radius: 12px;
             padding: 1rem 1.2rem;
@@ -637,17 +664,33 @@
             margin-bottom: 1.2rem;
             line-height: 1.6;
         }
-
-        .setup-note strong { color: var(--orange); }
-
+        
+        .setup-note strong {
+            color: var(--orange);
+        }
         /* ─── RESPONSIVE ─── */
+        
         @media (max-width: 600px) {
-            .gi-panel { width: 100vw; }
-            .gi-body { padding: 1.5rem; }
-            .gi-header { padding: 2rem 1.5rem 1.5rem; }
-            .form-row { grid-template-columns: 1fr; }
-            .impact-grid { grid-template-columns: 1fr; }
-            .gi-footer { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+            .gi-panel {
+                width: 100vw;
+            }
+            .gi-body {
+                padding: 1.5rem;
+            }
+            .gi-header {
+                padding: 2rem 1.5rem 1.5rem;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+            .gi-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
         }
     </style>
 </head>
@@ -693,9 +736,9 @@
             <!-- ─── VOLUNTEER TAB ─── -->
             <div class="tab-pane active" id="pane-volunteer">
 
-                <div class="setup-note">
+                <!-- <div class="setup-note">
                     <strong>📧 Email setup:</strong> This form uses <a href="https://emailjs.com" target="_blank" style="color:var(--orange)">EmailJS</a> (free). Replace <code>YOUR_PUBLIC_KEY</code>, <code>YOUR_SERVICE_ID</code> and <code>YOUR_TEMPLATE_ID</code> in the script below with your actual EmailJS credentials. Emails will be sent to <strong>gmumoltd@gmail.com</strong> for now.
-                </div>
+                </div> -->
 
                 <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:1.2rem; line-height:1.6;">How would you like to serve LuvWay Kenya? Choose one or more ways to get involved.</p>
 
@@ -730,7 +773,7 @@
                     </button>
                 </div>
 
-                <form class="gi-form" id="involveForm" onsubmit="submitForm(event)">
+                <!-- <form class="gi-form" id="involveForm" onsubmit="submitForm(event)">
                     <input type="hidden" id="involvement-type" name="involvement_type" value="">
 
                     <div class="form-row">
@@ -780,7 +823,7 @@
                     <div class="error-msg" id="errorMsg">
                         ⚠️ Something went wrong. Please try again or contact us directly at <strong>luvwayke22@gmail.com</strong>
                     </div>
-                </form>
+                </form> -->
             </div>
 
             <!-- ─── DONATE TAB ─── -->
@@ -864,11 +907,12 @@
                 </div>
             </div>
 
-        </div><!-- /gi-body -->
+        </div>
+        <!-- /gi-body -->
 
         <!-- Footer -->
         <div class="gi-footer">
-            <p>© 2025 LuvWay Kenya</p>
+            <p>© 2026 LuvWay Kenya</p>
             <div class="gi-footer-links">
                 <a href="mailto:luvwayke22@gmail.com">Email Us</a>
                 <a href="https://wa.me/254732994900" target="_blank">WhatsApp</a>
@@ -876,7 +920,8 @@
             </div>
         </div>
 
-    </div><!-- /gi-panel -->
+    </div>
+    <!-- /gi-panel -->
 
     <script>
         // ─── EmailJS Init ───────────────────────────────────────────
@@ -888,9 +933,9 @@
         //    {{involvement_type}}, {{message}}
         // 4. Replace the three values below with your actual IDs:
 
-        const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // e.g. 'abc123xyz'
-        const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // e.g. 'service_luvway'
-        const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // e.g. 'template_volunteer'
+        const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // e.g. 'abc123xyz'
+        const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID'; // e.g. 'service_luvway'
+        const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // e.g. 'template_volunteer'
 
         emailjs.init(EMAILJS_PUBLIC_KEY);
 
@@ -930,13 +975,13 @@
 
             // Gather form data
             const params = {
-                from_name:        document.getElementById('fi-name').value,
-                from_email:       document.getElementById('fi-email').value,
-                phone:            document.getElementById('fi-phone').value || 'Not provided',
-                county:           document.getElementById('fi-county').value || 'Not specified',
+                from_name: document.getElementById('fi-name').value,
+                from_email: document.getElementById('fi-email').value,
+                phone: document.getElementById('fi-phone').value || 'Not provided',
+                county: document.getElementById('fi-county').value || 'Not specified',
                 involvement_type: document.getElementById('involvement-type').value || 'Not specified',
-                message:          document.getElementById('fi-message').value,
-                to_email:         'gmumoltd@gmail.com',
+                message: document.getElementById('fi-message').value,
+                to_email: 'gmumoltd@gmail.com',
             };
 
             try {
@@ -964,4 +1009,5 @@
     </script>
 
 </body>
+
 </html>
