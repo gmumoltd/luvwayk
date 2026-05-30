@@ -4,492 +4,1214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curriculum – LuvWay Kenya Vision Bearer Bible Clubs</title>
+    <title>Young Disciple Series — Lesson Showcase</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --magenta: #e91e8c;
+            --orange: #f97316;
+            --teal: #0d9488;
+            --blue: #1d4ed8;
+            --gold: #f59e0b;
+            --dark: #0f172a;
+            --card-bg: #ffffff;
+            --page-bg: #f0f4ff;
+            --text: #1e293b;
+            --muted: #64748b;
+            --radius: 20px;
+            --shadow: 0 8px 32px rgba(15, 23, 42, 0.13);
+            --shadow-hover: 0 20px 48px rgba(15, 23, 42, 0.22);
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--page-bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+        /* ── HERO BANNER ── */
+        
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1d3a6e 50%, #0d1f45 100%);
+            padding: 3.5rem 2rem 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 70% 50%, rgba(233, 30, 140, 0.18) 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(245, 158, 11, 0.15) 0%, transparent 55%);
+        }
+        
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        
+        .hero-tag {
+            display: inline-block;
+            background: rgba(233, 30, 140, 0.2);
+            border: 1px solid rgba(233, 30, 140, 0.5);
+            color: #f9a8d4;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.4rem 1.1rem;
+            border-radius: 999px;
+            margin-bottom: 1.2rem;
+        }
+        
+        .hero h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            color: #fff;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+        
+        .hero h1 span {
+            color: var(--gold);
+        }
+        
+        .hero p {
+            color: #94a3b8;
+            font-size: 1rem;
+            max-width: 580px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+        
+        .hero-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+        }
+        
+        .hero-pill {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #e2e8f0;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.35rem 1rem;
+            border-radius: 999px;
+        }
+        /* ── RAINBOW STRIP ── */
+        
+        .rainbow {
+            height: 5px;
+            background: linear-gradient(90deg, #e91e8c, #f97316, #f59e0b, #22c55e, #0d9488, #1d4ed8, #7c3aed);
+        }
+        /* ── FILTER BAR ── */
+        
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            padding: 2rem 1.5rem 1rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .filter-btn {
+            background: #fff;
+            border: 2px solid #e2e8f0;
+            color: var(--muted);
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 0.4rem 1.1rem;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--dark);
+            border-color: var(--dark);
+            color: #fff;
+        }
+        /* ── GRID ── */
+        
+        .showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem 4rem;
+        }
+        /* ── CARD ── */
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+        /* accent bar on left of card */
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            border-radius: 4px 0 0 4px;
+            background: var(--accent, var(--magenta));
+        }
+        /* cover image pair */
+        
+        .card-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .card-images.single {
+            grid-template-columns: 1fr;
+        }
+        
+        .card-images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        
+        .card:hover .card-images img {
+            transform: scale(1.05);
+        }
+        
+        .card-images .divider {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #fff;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+        
+        .card-images.single .divider {
+            display: none;
+        }
+        /* topic badge */
+        
+        .card-badge {
+            position: absolute;
+            bottom: 10px;
+            left: 12px;
+            z-index: 3;
+            background: rgba(15, 23, 42, 0.82);
+            backdrop-filter: blur(6px);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.28rem 0.7rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        /* body */
+        
+        .card-body {
+            padding: 1.3rem 1.4rem 1.5rem 1.6rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .card-ref {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent, var(--magenta));
+        }
+        
+        .card-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.05rem;
+            color: var(--dark);
+            line-height: 1.25;
+        }
+        
+        .card-desc {
+            font-size: 0.85rem;
+            color: var(--muted);
+            line-height: 1.65;
+            flex: 1;
+        }
+        
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.4rem;
+        }
+        
+        .tag {
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 0.22rem 0.65rem;
+            border-radius: 999px;
+            background: var(--tag-bg, #f1f5f9);
+            color: var(--tag-color, #475569);
+        }
+        
+        .card-footer {
+            padding: 0.9rem 1.4rem 1.1rem 1.6rem;
+            border-top: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .level-badge {
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            background: var(--level-bg, #fef3c7);
+            color: var(--level-color, #92400e);
+        }
+        
+        .card-number {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--accent, var(--magenta));
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        /* ── SECTION DIVIDER ── */
+        
+        .section-label {
+            max-width: 1200px;
+            margin: 2rem auto 0.3rem;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .section-label h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1rem;
+            color: var(--dark);
+            white-space: nowrap;
+        }
+        
+        .section-label hr {
+            flex: 1;
+            border: none;
+            border-top: 2px solid #e2e8f0;
+        }
+        /* ── FOOTER ── */
+        
+        .page-footer {
+            background: var(--dark);
+            color: #94a3b8;
+            text-align: center;
+            padding: 1.8rem 1.5rem;
+            font-size: 0.82rem;
+        }
+        
+        .page-footer strong {
+            color: #f9a8d4;
+        }
+        /* ── ANIMATIONS ── */
+        
+        .card {
+            opacity: 0;
+            transform: translateY(24px);
+        }
+        
+        .card.visible {
+            animation: fadeUp 0.5s ease forwards;
+        }
+        
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .showcase {
+                grid-template-columns: 1fr;
+                padding: 1rem 1rem 3rem;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+        }
+        /* ── IMAGE ZOOM HINT ── */
+        
+        .card-images {
+            cursor: zoom-in;
+        }
+        
+        .card-images::after {
+            content: '🔍 Click to enlarge';
+            position: absolute;
+            bottom: 10px;
+            right: 12px;
+            z-index: 4;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(6px);
+            color: #fff;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            opacity: 0;
+            transform: translateY(4px);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            pointer-events: none;
+        }
+        
+        .card:hover .card-images::after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* ── LIGHTBOX OVERLAY ── */
+        
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(5, 10, 25, 0.92);
+            backdrop-filter: blur(12px);
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            animation: lbFadeIn 0.25s ease;
+        }
+        
+        #lightbox.open {
+            display: flex;
+        }
+        
+        @keyframes lbFadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        /* image container inside lightbox */
+        
+        #lightbox-inner {
+            position: relative;
+            max-width: 92vw;
+            max-height: 92vh;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            justify-content: center;
+            animation: lbPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        @keyframes lbPop {
+            from {
+                transform: scale(0.82);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        #lightbox-inner img {
+            max-height: 88vh;
+            max-width: 46vw;
+            width: auto;
+            height: auto;
+            border-radius: 14px;
+            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.7);
+            display: block;
+            object-fit: contain;
+        }
+        
+        #lightbox-inner img.lb-single {
+            max-width: 82vw;
+        }
+        /* close button */
+        
+        #lightbox-close {
+            position: fixed;
+            top: 1.2rem;
+            right: 1.4rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+            color: #fff;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.2s;
+            z-index: 10000;
+            line-height: 1;
+        }
+        
+        #lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.1) rotate(90deg);
+        }
+        /* caption strip */
+        
+        #lightbox-caption {
+            position: fixed;
+            bottom: 1.4rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #e2e8f0;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            padding: 0.5rem 1.4rem;
+            border-radius: 999px;
+            white-space: nowrap;
+            max-width: 90vw;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        /* nav arrows (for dual-image cards) */
+        
+        .lb-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1.5px solid rgba(255, 255, 255, 0.22);
+            color: #fff;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.3s;
+            z-index: 10000;
+        }
+        
+        .lb-arrow:hover {
+            background: rgba(255, 255, 255, 0.22);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        #lb-prev {
+            left: 1rem;
+        }
+        
+        #lb-next {
+            right: 1rem;
+        }
+        
+        .lb-arrow.hidden {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- NAV -->
-    <nav>
-        <div class="nav-logo">
-            <img src="assets/images/luvway_logo.png" alt="LuvWay Kenya">
-        </div>
-
-        <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
-        <ul class="nav-links" id="nav-links">
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#programs">Programs</a></li>
-            <li><a href="curriculum.html" style="color:var(--magenta); font-weight:700;">Curriculum</a></li>
-            <li><a href="index.html#gallery">Gallery</a></li>
-            <li><a href="index.html#testimonials">Stories</a></li>
-            <li><a href="index.html#founder">Founder</a></li>
-            <li><a href="get-involved.html" class="nav-cta">Get Involved</a></li>
-        </ul>
-    </nav>
-
-
     <!-- HERO -->
-    <div class="curriculum-hero">
-        <div class="curriculum-hero-content">
-            <p class="section-tag">Curriculum Development</p>
-            <h1 class="section-title">The Vision Bearer<br>Bible Club Curriculum</h1>
-            <p class="section-sub">A 10-year, field-tested Bible teaching curriculum developed by Beatrice Atieno Ofwona — designed to disciple children aged 3 to 19 across Kenya in the GROW framework of faith.</p>
-            <div class="curriculum-hero-badges">
-                <span class="ch-badge">📅 10 Years in Development</span>
-                <span class="ch-badge">👧 Ages 3 – 19</span>
-                <span class="ch-badge">📍 7+ Locations Across Kenya</span>
-                <span class="ch-badge">🌱 GROW Framework</span>
+    <div class="hero">
+        <div class="hero-inner">
+            <div class="hero-tag">📚 Young Disciple Series</div>
+            <h1>Visual Lesson <span>Showcase</span></h1>
+            <p>A complete visual aid of all curriculum lesson covers — designed to help present and explain each teaching unit to churches, schools and ministry partners.</p>
+            <div class="hero-pills">
+                <span class="hero-pill">📖 16 Lesson Units</span>
+                <span class="hero-pill">👧 Ages 3 – 19</span>
+                <span class="hero-pill">🌍 Field-tested in Kenya</span>
+                <span class="hero-pill">🌱 GROW Framework</span>
             </div>
         </div>
     </div>
+    <div class="rainbow"></div>
 
-    <div class="rainbow-strip"></div>
-
-
-    <!-- WHAT IS THE CURRICULUM -->
-    <section style="background:#fff;">
-        <div class="curriculum-overview-grid">
-            <div class="fade-up">
-                <p class="section-tag">About the Curriculum</p>
-                <h2 class="section-title">Built from the Field,<br>Grounded in the Word</h2>
-                <p class="section-sub">The LuvWay Kenya Bible curriculum is not theory — it was built over a decade of running Saturday Bible Clubs, Vacational Bible Schools and school outreaches across Nairobi, Mombasa, Kiambu and Kilifi counties.</p>
-                <p class="section-sub" style="margin-top:1rem;">Every lesson, memory verse, activity and song has been tested with real children from diverse backgrounds — urban slums, rural communities, children's homes and public schools. The curriculum is crafted to be practical, engaging, and deeply rooted in Scripture.</p>
-                <p class="section-sub" style="margin-top:1rem;">It equips volunteer teachers with everything they need to run a structured, impactful Bible Club session — even with minimal resources. This is discipleship made accessible for the grassroots church.</p>
-            </div>
-            <div class="fade-up">
-                <div style="background:var(--light-gray); border-radius:24px; padding:2.5rem; display:flex; flex-direction:column; gap:1.5rem;">
-                    <div style="display:flex; gap:1rem; align-items:flex-start;">
-                        <div style="width:44px; height:44px; background:var(--magenta); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; flex-shrink:0;">📖</div>
-                        <div>
-                            <h4 style="font-weight:700; color:var(--dark); margin-bottom:0.3rem;">Scripture-centred</h4>
-                            <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Every session is anchored in a Bible passage with memory verses children carry into their week.</p>
-                        </div>
-                    </div>
-                    <div style="display:flex; gap:1rem; align-items:flex-start;">
-                        <div style="width:44px; height:44px; background:var(--orange); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; flex-shrink:0;">🎨</div>
-                        <div>
-                            <h4 style="font-weight:700; color:var(--dark); margin-bottom:0.3rem;">Activity-based Learning</h4>
-                            <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Songs, drama, storytelling, art and games keep children actively engaged with the lesson theme.</p>
-                        </div>
-                    </div>
-                    <div style="display:flex; gap:1rem; align-items:flex-start;">
-                        <div style="width:44px; height:44px; background:var(--teal); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; flex-shrink:0;">👩‍🏫</div>
-                        <div>
-                            <h4 style="font-weight:700; color:var(--dark); margin-bottom:0.3rem;">Teacher-ready Materials</h4>
-                            <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Lesson plans, teacher guides and session outlines are written so that trained volunteers can teach confidently.</p>
-                        </div>
-                    </div>
-                    <div style="display:flex; gap:1rem; align-items:flex-start;">
-                        <div style="width:44px; height:44px; background:var(--blue); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; flex-shrink:0;">📊</div>
-                        <div>
-                            <h4 style="font-weight:700; color:var(--dark); margin-bottom:0.3rem;">Progressive Structure</h4>
-                            <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">The curriculum builds year on year — from foundational faith for toddlers to deep theological discipleship for teens.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- GROW FRAMEWORK -->
-    <section style="background:var(--light-gray);">
-        <div style="text-align:center; margin-bottom:3rem;" class="fade-up">
-            <p class="section-tag">The Framework</p>
-            <h2 class="section-title">Built on GROW</h2>
-            <p class="section-sub" style="margin:0 auto;">Everything LuvWay teaches flows through the GROW framework — four pillars that shape how children understand and live their faith.</p>
-        </div>
-        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem;">
-            <div class="program-card fade-up" style="text-align:center; border-color:var(--magenta);">
-                <div style="width:64px; height:64px; background:var(--magenta); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.8rem; font-weight:900; color:#fff; margin:0 auto 1.2rem;">G</div>
-                <h3 style="margin-bottom:0.5rem;">Go to Church</h3>
-                <p>Children learn that the local church is God's family and that fellowship, worship and accountability are essential to a growing faith. We partner with local churches to keep children connected.</p>
-            </div>
-            <div class="program-card fade-up" style="text-align:center; border-color:var(--orange);">
-                <div style="width:64px; height:64px; background:var(--orange); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.8rem; font-weight:900; color:#fff; margin:0 auto 1.2rem;">R</div>
-                <h3 style="margin-bottom:0.5rem;">Read & Pray</h3>
-                <p>Every club session teaches a Bible passage and a memory verse. Children are sent home with a daily reading challenge and prayer practice — building lifelong habits of devotion to God's Word.</p>
-            </div>
-            <div class="program-card fade-up" style="text-align:center; border-color:var(--teal);">
-                <div style="width:64px; height:64px; background:var(--teal); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.8rem; font-weight:900; color:#fff; margin:0 auto 1.2rem;">O</div>
-                <h3 style="margin-bottom:0.5rem;">Obey God's Word</h3>
-                <p>Faith without action is empty. Our curriculum teaches character formation — honesty, respect, kindness, and integrity. Children apply each week's lesson to their home, school and community lives.</p>
-            </div>
-            <div class="program-card fade-up" style="text-align:center; border-color:var(--blue);">
-                <div style="width:64px; height:64px; background:var(--blue); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.8rem; font-weight:900; color:#fff; margin:0 auto 1.2rem;">W</div>
-                <h3 style="margin-bottom:0.5rem;">Witness to Others</h3>
-                <p>Discipleship multiplies when children share their faith with peers. By age 12, children are actively encouraged to invite friends; by 19, they are equipped and mentored to become club teachers themselves.</p>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- AGE GROUPS -->
-    <section style="background:#fff;">
-        <div style="text-align:center; margin-bottom:1rem;" class="fade-up">
-            <p class="section-tag">Learning Levels</p>
-            <h2 class="section-title">Age-Appropriate Discipleship</h2>
-            <p class="section-sub" style="margin:0 auto;">The curriculum is divided into three learning levels, each with tailored teaching methods, vocabulary and spiritual depth suited to the child's stage of development.</p>
-        </div>
-        <div class="age-levels-grid">
-            <div class="age-card fade-up">
-                <div class="age-icon">🌱</div>
-                <div class="age-range">Ages 3 – 6 · Little Sprouts</div>
-                <h3>Foundations of Faith</h3>
-                <p>Simple Bible stories, action songs, colouring activities and memory verses. Children learn that God made them, loves them, and has a plan for their life. Each session is short, visual and playful — building a first love for Jesus.</p>
-            </div>
-            <div class="age-card fade-up">
-                <div class="age-icon">🌿</div>
-                <div class="age-range">Ages 7 – 12 · Growing Disciples</div>
-                <h3>Rooted in the Word</h3>
-                <p>Structured Bible lessons, role-plays, group discussion and verse memorisation. Children explore the full narrative of Scripture — Creation, the Fall, Redemption and Restoration — and learn how to apply God's Word in everyday decisions.</p>
-            </div>
-            <div class="age-card fade-up">
-                <div class="age-icon">🌳</div>
-                <div class="age-range">Ages 13 – 19 · Teen Leaders</div>
-                <h3>Equipped to Lead</h3>
-                <p>Deeper theological study, real-talk sessions on peer pressure, identity, relationships and calling. Teens are mentored into Bible Club leadership roles — becoming teachers, worship leaders and evangelists to their peers.</p>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- TOPICS -->
-    <section style="background:var(--light-gray);">
-        <div class="curriculum-overview-grid">
-            <div class="fade-up">
-                <p class="section-tag">What We Teach</p>
-                <h2 class="section-title">Core Topics &<br>Teaching Themes</h2>
-                <p class="section-sub">The curriculum covers a broad range of biblical and character-building themes across each year. Below is a sample of the 12 core topic areas woven throughout every level of the program.</p>
-                <p class="section-sub" style="margin-top:1rem;">Each topic is revisited across all age groups with increasing depth — so a child who joins at age 5 and stays through age 18 will have explored every theme multiple times, growing in understanding and application with each pass.</p>
-            </div>
-            <div class="fade-up">
-                <div class="topics-grid">
-                    <div class="topic-item">
-                        <div class="topic-num">01</div>
-                        <div>
-                            <h4>Who Is God?</h4>
-                            <p>The nature, character and names of God — Father, Son and Holy Spirit.</p>
-                        </div>
-                    </div>
-                    <div class="topic-item">
-                        <div class="topic-num">02</div>
-                        <div>
-                            <h4>The Bible</h4>
-                            <p>Why we trust God's Word, how to read it, and what it says about us.</p>
-                        </div>
-                    </div>
-                    <div class="topic-item">
-                        <div class="topic-num">03</div>
-                        <div>
-                            <h4>Salvation & Grace</h4>
-                            <p>The Gospel message: sin, the cross, resurrection, and new life in Christ.</p>
-                        </div>
-                    </div>
-                    <div class="topic-item">
-                        <div class="topic-num">04</div>
-                        <div>
-                            <h4>Prayer & Worship</h4>
-                            <p>How to pray, why to worship, and meeting God in daily life.</p>
-                        </div>
-                    </div>
-                    <div class="topic-item">
-                        <div class="topic-num">05</div>
-                        <div>
-                            <h4>Character & Values</h4>
-                            <p>Honesty, kindness, integrity, forgiveness and servant leadership.</p>
-                        </div>
-                    </div>
-                    <div class="topic-item">
-                        <div class="topic-num">06</div>
-                        <div>
-                            <h4>Family & Community</h4>
-                            <p>Honouring parents, serving neighbours, and being part of God's family.</p>
-                        </div>
-                    </div>
-                    <div class="topic-item">
-                        <div class="topic-num">07</div>
-                        <div>
-                            <h4>Identity in Christ</h4>
-                            <p>Who God says I am — loved, chosen, made for purpose, not defined by circumstances.</p>
-                        </div>
-                    </div>
-                    <div class="topic-item">
-                        <div class="topic-num">08</div>
-                        <div>
-                            <h4>Peer Pressure & Choices</h4>
-                            <p>Making wise decisions, resisting temptation, and standing firm in faith.</p>
-                        </div>
-                    </div>
-                    <div class="topic-item">
-                        <div class="topic-num">09</div>
-                        <div>
-                            <h4>Evangelism & Witness</h4>
-                            <p>How to share the Gospel simply, invite a friend, and live as a light.</p>
-                        </div>
-                    </div>
-                    <div class="topic-item">
-                        <div class="topic-num">10</div>
-                        <div>
-                            <h4>The Church & Body of Christ</h4>
-                            <p>What the church is, why it matters, and our role in it as children.</p>
-                        </div>
-                    </div>
-                    <div class="topic-item">
-                        <div class="topic-num">11</div>
-                        <div>
-                            <h4>Spiritual Disciplines</h4>
-                            <p>Fasting, Bible memorisation, journaling and growing in personal faith.</p>
-                        </div>
-                    </div>
-                    <div class="topic-item">
-                        <div class="topic-num">12</div>
-                        <div>
-                            <h4>Mission & Calling</h4>
-                            <p>God's plan for Kenya and the world — and how every child plays a part.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- HOW IT'S DELIVERED -->
-    <section style="background:#fff;">
-        <div style="text-align:center; margin-bottom:3rem;" class="fade-up">
-            <p class="section-tag">Delivery</p>
-            <h2 class="section-title">How the Curriculum<br>Comes to Life</h2>
-            <p class="section-sub" style="margin:0 auto;">The curriculum is delivered through five distinct program formats — each one reaching children in a different context and meeting them where they are.</p>
-        </div>
-        <div class="programs-grid">
-            <div class="program-card fade-up">
-                <div class="program-icon">📅</div>
-                <h3>Saturday Bible Clubs</h3>
-                <p>The primary delivery format. Held weekly at church venues, school grounds and open spaces. Each 2-hour session follows a structured order: worship, teaching, memory verse, activity, feeding and prayer.</p>
-            </div>
-            <div class="program-card fade-up">
-                <div class="program-icon">🏕️</div>
-                <h3>Vacational Bible School (VBS)</h3>
-                <p>Intensive week-long programs during school holidays. The curriculum is condensed into daily deep-dives — ideal for reaching children who attend public school and are only free during holiday periods.</p>
-            </div>
-            <div class="program-card fade-up">
-                <div class="program-icon">🏫</div>
-                <h3>School Outreach (PPI)</h3>
-                <p>Adapted curriculum modules delivered inside primary schools during assemblies and allocated Christian Union periods — reaching children who have never attended a Bible club.</p>
-            </div>
-            <div class="program-card fade-up">
-                <div class="program-icon">🌟</div>
-                <h3>Teens' Week Program</h3>
-                <p>A dedicated annual intensive for teens aged 13–19. Covers identity, relationships, calling and leadership. Older teens are then mentored into teacher-training tracks.</p>
-            </div>
-            <div class="program-card fade-up">
-                <div class="program-icon">👩‍🏫</div>
-                <h3>Teacher Training Seminars</h3>
-                <p>Volunteer teachers receive structured training in child-appropriate teaching methods, lesson delivery, class management and how to adapt the curriculum for different age groups and settings.</p>
-            </div>
-            <div class="program-card fade-up">
-                <div class="program-icon">🏠</div>
-                <h3>Children's Homes Outreach</h3>
-                <p>A specially adapted module for children in institutional care — addressing identity, belonging, healing and hope with deep sensitivity and the love of Christ.</p>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- CURRICULUM MATERIALS / DOWNLOADS -->
-    <section style="background:var(--light-gray);">
-        <div style="text-align:center; margin-bottom:2rem;" class="fade-up">
-            <p class="section-tag">Resources</p>
-            <h2 class="section-title">Curriculum Materials</h2>
-            <p class="section-sub" style="margin:0 auto;">The following materials are available to partner churches, Bible Club teachers and ministry organisations. Contact us via WhatsApp to request access to full curriculum packs.</p>
-        </div>
-        <div class="download-grid">
-            <div class="download-card fade-up">
-                <div class="dl-icon">📋</div>
-                <h4>Curriculum Overview Guide</h4>
-                <p>A complete summary of all 12 topic areas, learning levels and how the 10-year structure is organised across different age groups.</p>
-                <a href="assets/curriculums/curriculum_overview.pdf" class="dl-btn" onclick="handleDownload(event, this)">⬇ Download PDF</a>
-            </div>
-            <div class="download-card fade-up">
-                <div class="dl-icon">🌱</div>
-                <h4>GROW Framework Guide</h4>
-                <p>A practical guide to the GROW framework for Bible Club teachers — with examples of how each pillar is integrated into weekly sessions.</p>
-                <a href="assets/curriculums/grow_framework_guide.pdf" class="dl-btn" onclick="handleDownload(event, this)">⬇ Download PDF</a>
-            </div>
-            <div class="download-card fade-up">
-                <div class="dl-icon">📅</div>
-                <h4>Term 1 Lesson Plans</h4>
-                <p>Complete lesson plans for a 13-week term — including memory verses, activities, songs and teacher notes for Little Sprouts (ages 3–6).</p>
-                <a href="assets/curriculums/lesson_plans_term1_little_sprouts.pdf" class="dl-btn" onclick="handleDownload(event, this)">⬇ Download PDF</a>
-            </div>
-            <div class="download-card fade-up">
-                <div class="dl-icon">🌿</div>
-                <h4>Growing Disciples Lessons</h4>
-                <p>Structured lesson plans for ages 7–12 covering character, salvation, the church and discipleship — with group discussion guides included.</p>
-                <a href="assets/curriculums/lesson_plans_growing_disciples.pdf" class="dl-btn" onclick="handleDownload(event, this)">⬇ Download PDF</a>
-            </div>
-            <div class="download-card fade-up">
-                <div class="dl-icon">🌳</div>
-                <h4>Teen Leaders Program</h4>
-                <p>The full teens' curriculum covering identity, peer pressure, relationships, calling and ministry training — for ages 13–19.</p>
-                <a href="assets/curriculums/teen_leaders_curriculum.pdf" class="dl-btn" onclick="handleDownload(event, this)">⬇ Download PDF</a>
-            </div>
-            <div class="download-card fade-up">
-                <div class="dl-icon">👩‍🏫</div>
-                <h4>Teacher Training Manual</h4>
-                <p>The complete training guide used in LuvWay teacher seminars — equipping volunteers to teach Scripture effectively to children of all ages.</p>
-                <a href="assets/curriculums/teacher_training_manual.pdf" class="dl-btn" onclick="handleDownload(event, this)">⬇ Download PDF</a>
-            </div>
-        </div>
-
-        <div class="fade-up" style="margin-top:2.5rem; background:#fff; border-radius:20px; padding:2rem; border-left:4px solid var(--orange); display:flex; gap:1.5rem; align-items:flex-start;">
-            <div style="font-size:2rem; flex-shrink:0;">💬</div>
-            <div>
-                <h4 style="font-weight:700; color:var(--dark); margin-bottom:0.4rem; font-size:1rem;">Need the full curriculum pack?</h4>
-                <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6;">If you are a church leader, school teacher or ministry partner wanting to adopt the LuvWay curriculum for your own Bible Club, reach out to Beatrice directly on WhatsApp. She will walk you through the training and materials needed to get started.</p>
-                <a href="https://wa.me/254732994900?text=Hello%2C%20I%20would%20like%20to%20request%20the%20LuvWay%20curriculum%20materials." target="_blank" class="btn-primary" style="margin-top:1rem; display:inline-block;">💬 Request Curriculum on WhatsApp</a>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- STATS -->
-    <section class="stats-section">
-        <div class="stats-grid">
-            <div class="stat-item fade-up">
-                <div class="stat-number">10</div>
-                <div class="stat-label">Years of Curriculum Development</div>
-            </div>
-            <div class="stat-item fade-up">
-                <div class="stat-number">300+</div>
-                <div class="stat-label">Teachers Trained & Equipped</div>
-            </div>
-            <div class="stat-item fade-up">
-                <div class="stat-number">12</div>
-                <div class="stat-label">Core Topic Areas Covered</div>
-            </div>
-            <div class="stat-item fade-up">
-                <div class="stat-number">3</div>
-                <div class="stat-label">Learning Levels — Ages 3 to 19</div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- CTA -->
-    <div class="curriculum-cta">
-        <p class="section-tag" style="color:var(--orange);">Partner With Us</p>
-        <h2 class="section-title">Start a Bible Club<br>in Your Community</h2>
-        <p class="section-sub">You don't need a big budget or a fancy building. You need a willing heart, trained teachers and a curriculum that works. LuvWay Kenya will equip you with everything else.</p>
-        <div class="cta-buttons">
-            <a href="https://wa.me/254732994900?text=Hello%2C%20I%20am%20interested%20in%20starting%20a%20Bible%20Club%20with%20LuvWay%20Kenya." target="_blank" class="btn-primary">💬 Start a Bible Club</a>
-            <a href="get-involved.html" class="btn-secondary" style="border-color:rgba(255,255,255,0.5); color:#fff;">Get Involved →</a>
-        </div>
+    <!-- FILTER BAR -->
+    <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterCards('all', this)">All Lessons</button>
+        <button class="filter-btn" onclick="filterCards('foundation', this)">Foundation &amp; Identity</button>
+        <button class="filter-btn" onclick="filterCards('prayer', this)">Prayer &amp; Worship</button>
+        <button class="filter-btn" onclick="filterCards('character', this)">Character &amp; Values</button>
+        <button class="filter-btn" onclick="filterCards('holy-spirit', this)">Holy Spirit</button>
+        <button class="filter-btn" onclick="filterCards('gospel', this)">Gospel Story</button>
     </div>
 
+
+    <!-- ═══════════════════════════════════════════
+     SECTION 1 — GOSPEL STORY
+════════════════════════════════════════════ -->
+    <div class="section-label">
+        <h2>Gospel Story</h2>
+        <hr>
+    </div>
+
+    <div class="showcase" id="showcase">
+
+        <!-- 1 -->
+        <div class="card visible" data-cat="gospel" style="--accent:#e91e8c;">
+            <div class="card-images">
+                <img src="assets/lesson-showcase/easter1.jpeg" alt="Easter Story v1">
+                <img src="assets/lesson-showcase/easter2.jpeg" alt="Easter Story v2">
+                <div class="divider"></div>
+                <div class="card-badge">Two Cover Editions</div>
+            </div>
+            <div class="card-body">
+                <div class="card-ref">Matthew 26 – 28 · Mark 16 · Luke 24 · John 20</div>
+                <div class="card-title">The Easter Story</div>
+                <div class="card-desc">Traces the full Passion Week — from the Last Supper and the Garden of Gethsemane, through the crucifixion, the resurrection and the ascension. Children discover that Jesus died for their sins and rose again, and that the same Holy Spirit
+                    who raised Him lives in them. The Pentecost event and the Great Commission tie the story to their own calling as young disciples.</div>
+                <div class="card-tags">
+                    <span class="tag" style="--tag-bg:#fce7f3;--tag-color:#be185d;">Salvation</span>
+                    <span class="tag" style="--tag-bg:#fce7f3;--tag-color:#be185d;">Resurrection</span>
+                    <span class="tag" style="--tag-bg:#fce7f3;--tag-color:#be185d;">Holy Spirit</span>
+                    <span class="tag" style="--tag-bg:#fce7f3;--tag-color:#be185d;">Calling</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="level-badge" style="--level-bg:#fce7f3;--level-color:#be185d;">All Ages</span>
+                <div class="card-number" style="background:#e91e8c;">1</div>
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="card" data-cat="gospel" style="--accent:#f97316;">
+            <div class="card-images single">
+                <img src="assets/lesson-showcase/birth_christ.jpeg" alt="The Birth of Christ">
+                <div class="card-badge">The Christmas Story</div>
+            </div>
+            <div class="card-body">
+                <div class="card-ref">Luke 1 – 2 · Matthew 1 – 2</div>
+                <div class="card-title">The Birth of Christ</div>
+                <div class="card-desc">Covers the Annunciation to Mary, Joseph's dream, the journey to Bethlehem, the manger scene, the shepherds' visit and the wise men. Children learn that Jesus is Immanuel — God with us — and that His birth was the fulfilment of hundreds
+                    of years of prophetic promise. A powerful lesson on humility, obedience and God's perfect timing.</div>
+                <div class="card-tags">
+                    <span class="tag" style="--tag-bg:#ffedd5;--tag-color:#9a3412;">Prophecy</span>
+                    <span class="tag" style="--tag-bg:#ffedd5;--tag-color:#9a3412;">Incarnation</span>
+                    <span class="tag" style="--tag-bg:#ffedd5;--tag-color:#9a3412;">Obedience</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="level-badge" style="--level-bg:#ffedd5;--level-color:#9a3412;">All Ages</span>
+                <div class="card-number" style="background:#f97316;">2</div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /showcase -->
+
+
+    <!-- ═══════════════════════════════════════════
+     SECTION 2 — FOUNDATION & IDENTITY
+════════════════════════════════════════════ -->
+    <div class="section-label">
+        <h2>Foundation &amp; Identity</h2>
+        <hr>
+    </div>
+
+    <div class="showcase">
+
+        <!-- 3 -->
+        <div class="card" data-cat="foundation" style="--accent:#0d9488;">
+            <div class="card-images single">
+                <img src="assets/lesson-showcase/names_of_god.jpeg" alt="8 Names of God">
+                <div class="card-badge">Jehovah Series</div>
+            </div>
+            <div class="card-body">
+                <div class="card-ref">Psalm 23 · Genesis 1 · Exodus 3 &amp; 17</div>
+                <div class="card-title">8 Names of God</div>
+                <div class="card-desc">Introduces eight covenant names of God — Jehovah Rohi (Shepherd), Jehovah Jireh (Provider), Jehovah Rapha (Healer), El Shaddai (Almighty) and more. Each name is taught through a Bible story that demonstrates that character of God in action.
+                    Children learn to call on the right name of God in different circumstances of life.</div>
+                <div class="card-tags">
+                    <span class="tag" style="--tag-bg:#ccfbf1;--tag-color:#0f766e;">God's Character</span>
+                    <span class="tag" style="--tag-bg:#ccfbf1;--tag-color:#0f766e;">Names of God</span>
+                    <span class="tag" style="--tag-bg:#ccfbf1;--tag-color:#0f766e;">Trust</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="level-badge" style="--level-bg:#ccfbf1;--level-color:#0f766e;">Ages 7 – 19</span>
+                <div class="card-number" style="background:#0d9488;">3</div>
+            </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="card" data-cat="foundation" style="--accent:#1d4ed8;">
+            <div class="card-images single">
+                <img src="assets/lesson-showcase/az_god.jpeg" alt="A-Z Attributes of God">
+                <div class="card-badge">26-Part Series</div>
+            </div>
+            <div class="card-body">
+                <div class="card-ref">Various Scriptures · Psalm 145 · Isaiah 40</div>
+                <div class="card-title">The A–Z Attributes of God</div>
+                <div class="card-desc">A comprehensive 26-session journey through every letter of the alphabet — each letter revealing a distinct attribute of God (Almighty, Brilliant, Compassionate, Deliverer…). Packed with Bible stories, memory anchors and real-life application.
+                    Ideal for a full year of teaching. Children finish the series with a deep, word-based understanding of who God truly is.</div>
+                <div class="card-tags">
+                    <span class="tag" style="--tag-bg:#dbeafe;--tag-color:#1e40af;">Theology</span>
+                    <span class="tag" style="--tag-bg:#dbeafe;--tag-color:#1e40af;">Memory Work</span>
+                    <span class="tag" style="--tag-bg:#dbeafe;--tag-color:#1e40af;">Year-long</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="level-badge" style="--level-bg:#dbeafe;--level-color:#1e40af;">Ages 7 – 19</span>
+                <div class="card-number" style="background:#1d4ed8;">4</div>
+            </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="card" data-cat="foundation" style="--accent:#7c3aed;">
+            <div class="card-images single">
+                <img src="assets/lesson-showcase/eyes_wide.jpeg" alt="Eyes Wide Shut">
+                <div class="card-badge">10 Bible Instances</div>
+            </div>
+            <div class="card-body">
+                <div class="card-ref">2 Kings 6 · Luke 24 · Numbers 22 · Acts 9</div>
+                <div class="card-title">Eyes Wide Open Shut</div>
+                <div class="card-desc">Explores ten fascinating moments in Scripture when people "should have seen but did not" — Elisha's servant, the disciples on the road to Emmaus, Balaam and the angel, Paul on the road to Damascus and more. Teaches children the difference
+                    between physical sight and spiritual perception, and how to develop eyes of faith that see God at work in every situation.</div>
+                <div class="card-tags">
+                    <span class="tag" style="--tag-bg:#ede9fe;--tag-color:#5b21b6;">Spiritual Sight</span>
+                    <span class="tag" style="--tag-bg:#ede9fe;--tag-color:#5b21b6;">Faith</span>
+                    <span class="tag" style="--tag-bg:#ede9fe;--tag-color:#5b21b6;">Discernment</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="level-badge" style="--level-bg:#ede9fe;--level-color:#5b21b6;">Ages 10 – 19</span>
+                <div class="card-number" style="background:#7c3aed;">5</div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /showcase -->
+
+
+    <!-- ═══════════════════════════════════════════
+     SECTION 3 — PRAYER & WORSHIP
+════════════════════════════════════════════ -->
+    <div class="section-label">
+        <h2>Prayer &amp; Worship</h2>
+        <hr>
+    </div>
+
+    <div class="showcase">
+
+        <!-- 6 -->
+        <div class="card" data-cat="prayer" style="--accent:#f59e0b;">
+            <div class="card-images single">
+                <img src="assets/lesson-showcase/lords_prayer.jpeg" alt="The Lord's Prayer">
+                <div class="card-badge">Mat 6:9-13</div>
+            </div>
+            <div class="card-body">
+                <div class="card-ref">Matthew 6:9–13 · Luke 11:1–4</div>
+                <div class="card-title">The Lord's Prayer</div>
+                <div class="card-desc">Breaks the Lord's Prayer into seven clauses and unpacks each one through a separate Bible story. Children learn to pray for the hallowing of God's name, the coming of His kingdom, daily provision, forgiveness of sins, and deliverance from
+                    evil — all through the stories of Abraham, Moses, the feeding of the 5,000, Hannah, Daniel and more. Prayer becomes a living conversation, not a memorised recitation.</div>
+                <div class="card-tags">
+                    <span class="tag" style="--tag-bg:#fef3c7;--tag-color:#92400e;">Prayer</span>
+                    <span class="tag" style="--tag-bg:#fef3c7;--tag-color:#92400e;">Forgiveness</span>
+                    <span class="tag" style="--tag-bg:#fef3c7;--tag-color:#92400e;">Kingdom of God</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="level-badge" style="--level-bg:#fef3c7;--level-color:#92400e;">All Ages</span>
+                <div class="card-number" style="background:#f59e0b;">6</div>
+            </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="card" data-cat="prayer" style="--accent:#0d9488;">
+            <div class="card-images single">
+                <img src="assets/lesson-showcase/prayer_lessons.jpeg" alt="5 Lessons on Prayer">
+                <div class="card-badge">5-Part Series</div>
+            </div>
+            <div class="card-body">
+                <div class="card-ref">Various · James 5:16 · Philippians 4:6</div>
+                <div class="card-title">5 Lessons on Prayer</div>
+                <div class="card-desc">A practical five-session mini-course that teaches children how to pray — alone, together, in crisis, in praise and in intercession for others. Uses both modern prayer photos and biblical examples to make prayer feel natural and accessible.
+                    Each session ends with a guided group prayer exercise that puts the lesson into practice immediately. Builds confidence and consistency in children's prayer lives.</div>
+                <div class="card-tags">
+                    <span class="tag" style="--tag-bg:#ccfbf1;--tag-color:#0f766e;">Intercession</span>
+                    <span class="tag" style="--tag-bg:#ccfbf1;--tag-color:#0f766e;">Praise</span>
+                    <span class="tag" style="--tag-bg:#ccfbf1;--tag-color:#0f766e;">Devotion</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="level-badge" style="--level-bg:#ccfbf1;--level-color:#0f766e;">Ages 7 – 19</span>
+                <div class="card-number" style="background:#0d9488;">7</div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /showcase -->
+
+
+    <!-- ═══════════════════════════════════════════
+     SECTION 4 — CHARACTER & VALUES
+════════════════════════════════════════════ -->
+    <div class="section-label">
+        <h2>Character &amp; Values</h2>
+        <hr>
+    </div>
+
+    <div class="showcase">
+
+        <!-- 8 -->
+        <div class="card" data-cat="character" style="--accent:#e91e8c;">
+            <div class="card-images single">
+                <img src="assets/lesson-showcase/beatitudes.jpeg" alt="The Beatitudes">
+                <div class="card-badge">Matthew 5:3-10</div>
+            </div>
+            <div class="card-body">
+                <div class="card-ref">Matthew 5:3–10 · Sermon on the Mount</div>
+                <div class="card-title">The Beatitudes</div>
+                <div class="card-desc">Teaches the eight Beatitudes through vivid Bible story illustrations — connecting each blessing to characters from Scripture who lived it out. Poor in spirit (Moses kneeling), merciful (the Good Samaritan), pure in heart (Joseph refusing
+                    Potiphar's wife), peacemakers (David sparing Saul) and more. Children learn that the Beatitudes describe the shape of a Christ-like character and the path to true blessing.</div>
+                <div class="card-tags">
+                    <span class="tag" style="--tag-bg:#fce7f3;--tag-color:#be185d;">Character</span>
+                    <span class="tag" style="--tag-bg:#fce7f3;--tag-color:#be185d;">Sermon on the Mount</span>
+                    <span class="tag" style="--tag-bg:#fce7f3;--tag-color:#be185d;">Mercy</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="level-badge" style="--level-bg:#fce7f3;--level-color:#be185d;">Ages 7 – 19</span>
+                <div class="card-number" style="background:#e91e8c;">8</div>
+            </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="card" data-cat="character" style="--accent:#f97316;">
+            <div class="card-images single">
+                <img src="assets/lesson-showcase/love.jpeg" alt="What Love Is">
+                <div class="card-badge">1 Cor 13:4-7</div>
+            </div>
+            <div class="card-body">
+                <div class="card-ref">1 Corinthians 13:4–7 · John 13:34–35</div>
+                <div class="card-title">What Love Is…</div>
+                <div class="card-desc">Unpacks every clause of Paul's famous love chapter through Bible story vignettes — patience (Joseph and his brothers), kindness (Ruth and Naomi), humility (Jesus washing feet), forgiveness (the Prodigal Son), and others. Goes beyond the
+                    wedding reading to show children that this kind of love is something they can practise in their own friendships, families and communities today.</div>
+                <div class="card-tags">
+                    <span class="tag" style="--tag-bg:#ffedd5;--tag-color:#9a3412;">Love</span>
+                    <span class="tag" style="--tag-bg:#ffedd5;--tag-color:#9a3412;">Relationships</span>
+                    <span class="tag" style="--tag-bg:#ffedd5;--tag-color:#9a3412;">Forgiveness</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="level-badge" style="--level-bg:#ffedd5;--level-color:#9a3412;">All Ages</span>
+                <div class="card-number" style="background:#f97316;">9</div>
+            </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="card" data-cat="character" style="--accent:#dc2626;">
+            <div class="card-images single">
+                <img src="assets/lesson-showcase/7things.jpeg" alt="7 Things God Hates">
+                <div class="card-badge">Proverbs 6:16-19</div>
+            </div>
+            <div class="card-body">
+                <div class="card-ref">Proverbs 6:16–19</div>
+                <div class="card-title">7 Things That God Hates</div>
+                <div class="card-desc">Tackles the seven abominations listed in Proverbs 6 — pride, lying, murder, scheming, running to evil, false witness and sowing discord — through stark Bible stories of characters who fell into each trap. Rather than a lecture on sin,
+                    this lesson builds deep moral reasoning in children: each session asks "why does God hate this?" and "what does this cost us?" Powerful for older children and teens.</div>
+                <div class="card-tags">
+                    <span class="tag" style="--tag-bg:#fee2e2;--tag-color:#991b1b;">Integrity</span>
+                    <span class="tag" style="--tag-bg:#fee2e2;--tag-color:#991b1b;">Moral Reasoning</span>
+                    <span class="tag" style="--tag-bg:#fee2e2;--tag-color:#991b1b;">Consequences</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="level-badge" style="--level-bg:#fee2e2;--level-color:#991b1b;">Ages 10 – 19</span>
+                <div class="card-number" style="background:#dc2626;">10</div>
+            </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="card" data-cat="character" style="--accent:#0d9488;">
+            <div class="card-images single">
+                <img src="assets/lesson-showcase/commandments.jpeg" alt="Ten Commandments">
+                <div class="card-badge">Exodus 20</div>
+            </div>
+            <div class="card-body">
+                <div class="card-ref">Exodus 20:1–17 · Deuteronomy 5</div>
+                <div class="card-title">The Ten Commandments</div>
+                <div class="card-desc">Teaches each commandment through a matching Bible story — the golden calf (no other gods), David and Bathsheba (do not commit adultery), Cain and Abel (do not murder), Ananias and Sapphira (do not lie), the Sabbath in Exodus 16 and more.
+                    Children understand these not as cold rules but as God's loving design for how humans flourish together. The Sabbath commandment receives special focus with the full Exodus 20:8-10 text displayed.</div>
+                <div class="card-tags">
+                    <span class="tag" style="--tag-bg:#ccfbf1;--tag-color:#0f766e;">Law of God</span>
+                    <span class="tag" style="--tag-bg:#ccfbf1;--tag-color:#0f766e;">The Sabbath</span>
+                    <span class="tag" style="--tag-bg:#ccfbf1;--tag-color:#0f766e;">Obedience</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="level-badge" style="--level-bg:#ccfbf1;--level-color:#0f766e;">Ages 7 – 19</span>
+                <div class="card-number" style="background:#0d9488;">11</div>
+            </div>
+        </div>
+
+        <!-- 12 -->
+        <div class="card" data-cat="character" style="--accent:#1d4ed8;">
+            <div class="card-images single">
+                <img src="assets/lesson-showcase/church.jpeg" alt="The Church That Pleases God">
+                <div class="card-badge">Revelation 2-3</div>
+            </div>
+            <div class="card-body">
+                <div class="card-ref">Revelation 2–3 · Acts 2</div>
+                <div class="card-title">The Church That Pleases God</div>
+                <div class="card-desc">Uses Christ's letters to the seven churches in Revelation to teach children what makes a healthy, God-honouring church community. Draws on stories of Mary and Martha (sitting at Jesus' feet), Daniel's three friends (refusing to compromise),
+                    the ten virgins (readiness), Peter's healing ministry and Nehemiah's crowd. Children discover their own role in building a church that Jesus would commend.</div>
+                <div class="card-tags">
+                    <span class="tag" style="--tag-bg:#dbeafe;--tag-color:#1e40af;">The Church</span>
+                    <span class="tag" style="--tag-bg:#dbeafe;--tag-color:#1e40af;">Faithfulness</span>
+                    <span class="tag" style="--tag-bg:#dbeafe;--tag-color:#1e40af;">Readiness</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="level-badge" style="--level-bg:#dbeafe;--level-color:#1e40af;">Ages 10 – 19</span>
+                <div class="card-number" style="background:#1d4ed8;">12</div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /showcase -->
+
+
+    <!-- ═══════════════════════════════════════════
+     SECTION 5 — HOLY SPIRIT
+════════════════════════════════════════════ -->
+    <div class="section-label">
+        <h2>Holy Spirit</h2>
+        <hr>
+    </div>
+
+    <div class="showcase">
+
+        <!-- 13 -->
+        <div class="card" data-cat="holy-spirit" style="--accent:#f59e0b;">
+            <div class="card-images single">
+                <img src="assets/lesson-showcase/fruit.jpeg" alt="Fruit of the Holy Spirit">
+                <div class="card-badge">Galatians 5:22-23</div>
+            </div>
+            <div class="card-body">
+                <div class="card-ref">Galatians 5:22–23 · John 15:1–8</div>
+                <div class="card-title">Fruit of the Holy Spirit</div>
+                <div class="card-desc">Maps each of the nine fruits of the Spirit to a Bible hero who demonstrated it under pressure — love (Good Samaritan), joy (Paul and Silas in prison), peace (Daniel in the lion's den), patience (Job), kindness (Joseph forgiving his brothers),
+                    goodness (the boy who gave his lunch), faithfulness (Shadrach, Meshach and Abednego), gentleness and self-control. Children learn that fruit is grown by abiding, not striving.</div>
+                <div class="card-tags">
+                    <span class="tag" style="--tag-bg:#fef3c7;--tag-color:#92400e;">Holy Spirit</span>
+                    <span class="tag" style="--tag-bg:#fef3c7;--tag-color:#92400e;">Character</span>
+                    <span class="tag" style="--tag-bg:#fef3c7;--tag-color:#92400e;">Abiding</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="level-badge" style="--level-bg:#fef3c7;--level-color:#92400e;">All Ages</span>
+                <div class="card-number" style="background:#f59e0b;">13</div>
+            </div>
+        </div>
+
+        <!-- 14 -->
+        <div class="card" data-cat="holy-spirit" style="--accent:#7c3aed;">
+            <div class="card-images single">
+                <img src="assets/lesson-showcase/fruit_not.jpeg" alt="What the Fruit of the Holy Spirit is Not">
+                <div class="card-badge">Galatians 5:19-21</div>
+            </div>
+            <div class="card-body">
+                <div class="card-ref">Galatians 5:19–21 · Romans 1</div>
+                <div class="card-title">What the Fruit of the Holy Spirit Is Not</div>
+                <div class="card-desc">The companion lesson to the Fruit series — examining the works of the flesh listed in Galatians 5: sexual immorality, idolatry (golden calf), discord (Absalom), jealousy (Joseph's brothers), drunkenness and more. Each negative example
+                    is presented with grace and without shame, making it clear that these are patterns a Spirit-filled life is being freed from. Vital for helping older children understand the contrast between a surrendered and unsurrendered life.</div>
+                <div class="card-tags">
+                    <span class="tag" style="--tag-bg:#ede9fe;--tag-color:#5b21b6;">Works of Flesh</span>
+                    <span class="tag" style="--tag-bg:#ede9fe;--tag-color:#5b21b6;">Transformation</span>
+                    <span class="tag" style="--tag-bg:#ede9fe;--tag-color:#5b21b6;">Teens</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="level-badge" style="--level-bg:#ede9fe;--level-color:#5b21b6;">Ages 13 – 19</span>
+                <div class="card-number" style="background:#7c3aed;">14</div>
+            </div>
+        </div>
+
+        <!-- 15 -->
+        <div class="card" data-cat="holy-spirit" style="--accent:#1d4ed8;">
+            <div class="card-images single">
+                <img src="assets/lesson-showcase/armor.jpeg" alt="The Full Armor of God">
+                <div class="card-badge">Ephesians 6:10-18</div>
+            </div>
+            <div class="card-body">
+                <div class="card-ref">Ephesians 6:10–18</div>
+                <div class="card-title">The Full Armor of God</div>
+                <div class="card-desc">Teaches each piece of spiritual armour — belt of truth, breastplate of righteousness, shoes of the gospel, shield of faith, helmet of salvation and sword of the Spirit — through Bible stories of spiritual battles won. Jesus stilling the
+                    storm, David and Goliath, Zacchaeus choosing truth, Matthew leaving his tax table, Jonathan's friendship with David and the story of the widow's offering. Children finish knowing how to dress spiritually every single day.</div>
+                <div class="card-tags">
+                    <span class="tag" style="--tag-bg:#dbeafe;--tag-color:#1e40af;">Spiritual Warfare</span>
+                    <span class="tag" style="--tag-bg:#dbeafe;--tag-color:#1e40af;">Protection</span>
+                    <span class="tag" style="--tag-bg:#dbeafe;--tag-color:#1e40af;">Daily Discipline</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="level-badge" style="--level-bg:#dbeafe;--level-color:#1e40af;">Ages 7 – 19</span>
+                <div class="card-number" style="background:#1d4ed8;">15</div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /showcase -->
+
+
+    <!-- ═══════════════════════════════════════════
+     STANDALONE LESSON
+════════════════════════════════════════════ -->
+    <div class="section-label">
+        <h2>Standalone &amp; Thematic</h2>
+        <hr>
+    </div>
+
+    <div class="showcase">
+
+        <!-- 16 -->
+        <div class="card" data-cat="character" style="--accent:#22c55e;">
+            <div class="card-images single">
+                <img src="assets/lesson-showcase/eyes_wide.jpeg" alt="Eyes Wide Shut" style="display:none;">
+                <img src="assets/lesson-showcase/church.jpeg" alt="placeholder" style="display:none;">
+                <!-- Using the standalone image already covered; use armor to fill visual -->
+                <img src="assets/lesson-showcase/prayer_lessons.jpeg" alt="5 Lessons on Prayer visual">
+                <div class="card-badge">Bonus Module</div>
+            </div>
+            <div class="card-body">
+                <div class="card-ref">Various · Review &amp; Consolidation</div>
+                <div class="card-title">Young Disciple Series — Full Overview</div>
+                <div class="card-desc">All 16 lesson units form a structured, progressive discipleship pathway from age 3 to 19 under LuvWay Kenya's GROW framework. Each unit is available as a standalone lesson pack or bundled into a term-plan. Teachers receive illustrated
+                    lesson guides, memory verse cards, activity sheets and group discussion questions — everything needed to run a full Bible Club session even with minimal resources.</div>
+                <div class="card-tags">
+                    <span class="tag" style="--tag-bg:#dcfce7;--tag-color:#14532d;">GROW Framework</span>
+                    <span class="tag" style="--tag-bg:#dcfce7;--tag-color:#14532d;">Teacher Pack</span>
+                    <span class="tag" style="--tag-bg:#dcfce7;--tag-color:#14532d;">Full Curriculum</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="level-badge" style="--level-bg:#dcfce7;--level-color:#14532d;">Ages 3 – 19</span>
+                <div class="card-number" style="background:#22c55e;">16</div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /showcase -->
+
+
+    <!-- ── LIGHTBOX ── -->
+    <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+        <button id="lightbox-close" aria-label="Close">✕</button>
+        <button class="lb-arrow hidden" id="lb-prev" aria-label="Previous image">‹</button>
+        <div id="lightbox-inner"></div>
+        <button class="lb-arrow hidden" id="lb-next" aria-label="Next image">›</button>
+        <div id="lightbox-caption"></div>
+    </div>
 
     <!-- FOOTER -->
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <img src="assets/images/luvway_logo.png" alt="LuvWay Kenya">
-                <p>Changing Lives, Inspiring Possibilities. A children's ministry dedicated to the spiritual, physical and emotional growth of children across Kenya since 2016.</p>
-            </div>
-            <div>
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html#about">About Us</a></li>
-                    <li><a href="index.html#programs">Programs</a></li>
-                    <li><a href="curriculum.html">Curriculum</a></li>
-                    <li><a href="index.html#gallery">Gallery</a></li>
-                    <li><a href="index.html#testimonials">Stories</a></li>
-                    <li><a href="index.html#founder">Our Founder</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Contact</h4>
-                <ul>
-                    <li><a href="tel:+254732994900">+254 732 994 900</a></li>
-                    <li><a href="tel:+254742339580">+254 742 339 580</a></li>
-                    <li><a href="mailto:luvwayke22@gmail.com">luvwayke22@gmail.com</a></li>
-                    <li><a href="https://wa.me/254732994900" target="_blank">WhatsApp Us</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-rainbow"></div>
-        <div class="footer-bottom">
-            <p>© 2026 LuvWay Kenya. All rights reserved. Built with love for the children of Kenya.</p>
-        </div>
+    <div class="rainbow"></div>
+    <footer class="page-footer">
+        <strong>LuvWay Kenya · Young Disciple Series</strong> — Visual Lesson Showcase &nbsp;|&nbsp; Curriculum by Beatrice Atieno Ofwona &nbsp;|&nbsp;
+        <a href="https://wa.me/254732994900" style="color:#86efac;">📲 WhatsApp to request materials</a>
     </footer>
 
 
     <script>
-        /* ─── HAMBURGER NAV TOGGLE ─── */
-        const hamburger = document.getElementById('hamburger');
-        const navLinks  = document.getElementById('nav-links');
-        const nav       = document.querySelector('nav');
-
-        hamburger.addEventListener('click', function () {
-            const isOpen = navLinks.classList.toggle('open');
-            hamburger.classList.toggle('active');
-            hamburger.setAttribute('aria-expanded', isOpen);
+        /* ─── SCROLL REVEAL ─── */
+        const cards = document.querySelectorAll('.card');
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((e, i) => {
+                if (e.isIntersecting) {
+                    setTimeout(() => e.target.classList.add('visible'), i * 80);
+                    io.unobserve(e.target);
+                }
+            });
+        }, {
+            threshold: 0.1
         });
+        cards.forEach(c => io.observe(c));
 
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('open');
-                hamburger.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
+        /* ─── FILTER ─── */
+        function filterCards(cat, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('.card').forEach(c => {
+                const match = cat === 'all' || c.dataset.cat === cat;
+                c.style.display = match ? '' : 'none';
+            });
+        }
+
+        /* ─── LIGHTBOX ─── */
+        const lb = document.getElementById('lightbox');
+        const lbInner = document.getElementById('lightbox-inner');
+        const lbCaption = document.getElementById('lightbox-caption');
+        const lbClose = document.getElementById('lightbox-close');
+        const lbPrev = document.getElementById('lb-prev');
+        const lbNext = document.getElementById('lb-next');
+
+        let lbImages = []; // array of {src, alt} for current card
+        let lbIndex = 0;
+
+        function openLightbox(imgEl, cardImagesEl) {
+            // collect all real images in this card-images block
+            const allImgs = Array.from(cardImagesEl.querySelectorAll('img'))
+                .filter(i => i.style.display !== 'none' && i.src);
+            lbImages = allImgs.map(i => ({
+                src: i.src,
+                alt: i.alt
+            }));
+            lbIndex = allImgs.indexOf(imgEl);
+            if (lbIndex < 0) lbIndex = 0;
+            renderLightbox();
+            lb.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            lbClose.focus();
+        }
+
+        function renderLightbox() {
+            lbInner.innerHTML = '';
+            const isSingle = lbImages.length === 1;
+
+            if (isSingle) {
+                const img = document.createElement('img');
+                img.src = lbImages[0].src;
+                img.alt = lbImages[0].alt;
+                img.className = 'lb-single';
+                lbInner.appendChild(img);
+                lbCaption.textContent = lbImages[0].alt;
+                lbPrev.classList.add('hidden');
+                lbNext.classList.add('hidden');
+            } else {
+                // show current image; arrows let you cycle
+                const img = document.createElement('img');
+                img.src = lbImages[lbIndex].src;
+                img.alt = lbImages[lbIndex].alt;
+                img.className = 'lb-single';
+                lbInner.appendChild(img);
+                lbCaption.textContent = lbImages[lbIndex].alt + ' (' + (lbIndex + 1) + ' / ' + lbImages.length + ')';
+                lbPrev.classList.toggle('hidden', lbIndex === 0);
+                lbNext.classList.toggle('hidden', lbIndex === lbImages.length - 1);
+            }
+        }
+
+        function closeLightbox() {
+            lb.classList.remove('open');
+            document.body.style.overflow = '';
+            lbImages = [];
+        }
+
+        // click on any card-images block
+        document.querySelectorAll('.card-images').forEach(ci => {
+            ci.addEventListener('click', function(e) {
+                const imgEl = e.target.closest('img');
+                if (!imgEl || imgEl.style.display === 'none') {
+                    // clicked area but not directly on img — open first image
+                    const first = ci.querySelector('img:not([style*="display:none"])');
+                    if (first) openLightbox(first, ci);
+                } else {
+                    openLightbox(imgEl, ci);
+                }
             });
         });
 
-        document.addEventListener('click', function (e) {
-            if (!nav.contains(e.target) && navLinks.classList.contains('open')) {
-                navLinks.classList.remove('open');
-                hamburger.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
+        lbClose.addEventListener('click', closeLightbox);
+
+        lb.addEventListener('click', function(e) {
+            if (e.target === lb) closeLightbox();
+        });
+
+        lbPrev.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (lbIndex > 0) {
+                lbIndex--;
+                renderLightbox();
             }
         });
 
+        lbNext.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (lbIndex < lbImages.length - 1) {
+                lbIndex++;
+                renderLightbox();
+            }
+        });
 
-        /* ─── SCROLL ANIMATIONS ─── */
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-
-        /* ─── DOWNLOAD HANDLER ─── */
-        function handleDownload(e, link) {
-            const href = link.getAttribute('href');
-            // Check if file exists — if curriculum files haven't been added yet, show a WhatsApp prompt
-            fetch(href, { method: 'HEAD' })
-                .then(res => {
-                    if (!res.ok) {
-                        e.preventDefault();
-                        if (confirm('This file is not yet uploaded. Would you like to request this material via WhatsApp?')) {
-                            window.open('https://wa.me/254732994900?text=Hello%2C%20I%20would%20like%20to%20request%20curriculum%20materials%20from%20LuvWay%20Kenya.', '_blank');
-                        }
-                    }
-                })
-                .catch(() => {
-                    e.preventDefault();
-                    if (confirm('This file is not yet available online. Would you like to request it via WhatsApp?')) {
-                        window.open('https://wa.me/254732994900?text=Hello%2C%20I%20would%20like%20to%20request%20curriculum%20materials%20from%20LuvWay%20Kenya.', '_blank');
-                    }
-                });
-        }
+        // keyboard support
+        document.addEventListener('keydown', function(e) {
+            if (!lb.classList.contains('open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft' && lbIndex > 0) {
+                lbIndex--;
+                renderLightbox();
+            }
+            if (e.key === 'ArrowRight' && lbIndex < lbImages.length - 1) {
+                lbIndex++;
+                renderLightbox();
+            }
+        });
     </script>
-
 </body>
+
 </html>

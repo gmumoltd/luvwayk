@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Young Disciple Series — Lesson Showcase</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --magenta: #e91e8c;
+    --orange: #f97316;
+    --teal: #0d9488;
+    --blue: #1d4ed8;
+    --gold: #f59e0b;
+    --dark: #0f172a;
+    --card-bg: #ffffff;
+    --page-bg: #f0f4ff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --radius: 20px;
+    --shadow: 0 8px 32px rgba(15,23,42,0.13);
+    --shadow-hover: 0 20px 48px rgba(15,23,42,0.22);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--page-bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── HERO BANNER ── */
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1d3a6e 50%, #0d1f45 100%);
+    padding: 3.5rem 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(233,30,140,0.18) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(245,158,11,0.15) 0%, transparent 55%);
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(233,30,140,0.2);
+    border: 1px solid rgba(233,30,140,0.5);
+    color: #f9a8d4;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.4rem 1.1rem;
+    border-radius: 999px;
+    margin-bottom: 1.2rem;
+  }
+  .hero h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero p {
+    color: #94a3b8;
+    font-size: 1rem;
+    max-width: 580px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+  .hero-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+  }
+  .hero-pill {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #e2e8f0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+  }
+
+  /* ── RAINBOW STRIP ── */
+  .rainbow {
+    height: 5px;
+    background: linear-gradient(90deg, #e91e8c, #f97316, #f59e0b, #22c55e, #0d9488, #1d4ed8, #7c3aed);
+  }
+
+  /* ── FILTER BAR ── */
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    padding: 2rem 1.5rem 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .filter-btn {
+    background: #fff;
+    border: 2px solid #e2e8f0;
+    color: var(--muted);
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 0.4rem 1.1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--dark);
+    border-color: var(--dark);
+    color: #fff;
+  }
+
+  /* ── GRID ── */
+  .showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 4rem;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  /* accent bar on left of card */
+  .card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    border-radius: 4px 0 0 4px;
+    background: var(--accent, var(--magenta));
+  }
+
+  /* cover image pair */
+  .card-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+  }
+  .card-images.single {
+    grid-template-columns: 1fr;
+  }
+  .card-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .card:hover .card-images img { transform: scale(1.05); }
+  .card-images .divider {
+    position: absolute;
+    left: 50%; top: 0; bottom: 0;
+    width: 3px;
+    background: #fff;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+  .card-images.single .divider { display: none; }
+
+  /* topic badge */
+  .card-badge {
+    position: absolute;
+    bottom: 10px;
+    left: 12px;
+    z-index: 3;
+    background: rgba(15,23,42,0.82);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.28rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  /* body */
+  .card-body {
+    padding: 1.3rem 1.4rem 1.5rem 1.6rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .card-ref {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent, var(--magenta));
+  }
+  .card-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.05rem;
+    color: var(--dark);
+    line-height: 1.25;
+  }
+  .card-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.65;
+    flex: 1;
+  }
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.4rem;
+  }
+  .tag {
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.22rem 0.65rem;
+    border-radius: 999px;
+    background: var(--tag-bg, #f1f5f9);
+    color: var(--tag-color, #475569);
+  }
+  .card-footer {
+    padding: 0.9rem 1.4rem 1.1rem 1.6rem;
+    border-top: 1px solid #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .level-badge {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    background: var(--level-bg, #fef3c7);
+    color: var(--level-color, #92400e);
+  }
+  .card-number {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--accent, var(--magenta));
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .section-label {
+    max-width: 1200px;
+    margin: 2rem auto 0.3rem;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .section-label h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1rem;
+    color: var(--dark);
+    white-space: nowrap;
+  }
+  .section-label hr {
+    flex: 1;
+    border: none;
+    border-top: 2px solid #e2e8f0;
+  }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    background: var(--dark);
+    color: #94a3b8;
+    text-align: center;
+    padding: 1.8rem 1.5rem;
+    font-size: 0.82rem;
+  }
+  .page-footer strong { color: #f9a8d4; }
+
+  /* ── ANIMATIONS ── */
+  .card { opacity: 0; transform: translateY(24px); }
+  .card.visible { animation: fadeUp 0.5s ease forwards; }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    .showcase { grid-template-columns: 1fr; padding: 1rem 1rem 3rem; }
+    .hero h1 { font-size: 1.7rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">📚 Young Disciple Series</div>
+    <h1>Visual Lesson <span>Showcase</span></h1>
+    <p>A complete visual aid of all curriculum lesson covers — designed to help present and explain each teaching unit to churches, schools and ministry partners.</p>
+    <div class="hero-pills">
+      <span class="hero-pill">📖 16 Lesson Units</span>
+      <span class="hero-pill">👧 Ages 3 – 19</span>
+      <span class="hero-pill">🌍 Field-tested in Kenya</span>
+      <span class="hero-pill">🌱 GROW Framework</span>
+    </div>
+  </div>
+</div>
+<div class="rainbow"></div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterCards('all', this)">All Lessons</button>
+  <button class="filter-btn" onclick="filterCards('foundation', this)">Foundation &amp; Identity</button>
+  <button class="filter-btn" onclick="filterCards('prayer', this)">Prayer &amp; Worship</button>
+  <button class="filter-btn" onclick="filterCards('character', this)">Character &amp; Values</button>
+  <button class="filter-btn" onclick="filterCards('holy-spirit', this)">Holy Spirit</button>
+  <button class="filter-btn" onclick="filterCards('gospel', this)">Gospel Story</button>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 1 — GOSPEL STORY
+════════════════════════════════════════════ -->
+<div class="section-label">
+  <h2>Gospel Story</h2><hr>
+</div>
+
+<div class="showcase" id="showcase">
+
+  <!-- 1 -->
+  <div class="card visible" data-cat="gospel" style="--accent:#e91e8c;">
+    <div class="card-images">
+      <img src="easter1.jpeg" alt="Easter Story v1">
+      <img src="easter2.jpeg" alt="Easter Story v2">
+      <div class="divider"></div>
+      <div class="card-badge">Two Cover Editions</div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Matthew 26 – 28 · Mark 16 · Luke 24 · John 20</div>
+      <div class="card-title">The Easter Story</div>
+      <div class="card-desc">Traces the full Passion Week — from the Last Supper and the Garden of Gethsemane, through the crucifixion, the resurrection and the ascension. Children discover that Jesus died for their sins and rose again, and that the same Holy Spirit who raised Him lives in them. The Pentecost event and the Great Commission tie the story to their own calling as young disciples.</div>
+      <div class="card-tags">
+        <span class="tag" style="--tag-bg:#fce7f3;--tag-color:#be185d;">Salvation</span>
+        <span class="tag" style="--tag-bg:#fce7f3;--tag-color:#be185d;">Resurrection</span>
+        <span class="tag" style="--tag-bg:#fce7f3;--tag-color:#be185d;">Holy Spirit</span>
+        <span class="tag" style="--tag-bg:#fce7f3;--tag-color:#be185d;">Calling</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="level-badge" style="--level-bg:#fce7f3;--level-color:#be185d;">All Ages</span>
+      <div class="card-number" style="background:#e91e8c;">1</div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="card" data-cat="gospel" style="--accent:#f97316;">
+    <div class="card-images single">
+      <img src="birth_christ.jpeg" alt="The Birth of Christ">
+      <div class="card-badge">The Christmas Story</div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Luke 1 – 2 · Matthew 1 – 2</div>
+      <div class="card-title">The Birth of Christ</div>
+      <div class="card-desc">Covers the Annunciation to Mary, Joseph's dream, the journey to Bethlehem, the manger scene, the shepherds' visit and the wise men. Children learn that Jesus is Immanuel — God with us — and that His birth was the fulfilment of hundreds of years of prophetic promise. A powerful lesson on humility, obedience and God's perfect timing.</div>
+      <div class="card-tags">
+        <span class="tag" style="--tag-bg:#ffedd5;--tag-color:#9a3412;">Prophecy</span>
+        <span class="tag" style="--tag-bg:#ffedd5;--tag-color:#9a3412;">Incarnation</span>
+        <span class="tag" style="--tag-bg:#ffedd5;--tag-color:#9a3412;">Obedience</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="level-badge" style="--level-bg:#ffedd5;--level-color:#9a3412;">All Ages</span>
+      <div class="card-number" style="background:#f97316;">2</div>
+    </div>
+  </div>
+
+</div><!-- /showcase -->
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 2 — FOUNDATION & IDENTITY
+════════════════════════════════════════════ -->
+<div class="section-label">
+  <h2>Foundation &amp; Identity</h2><hr>
+</div>
+
+<div class="showcase">
+
+  <!-- 3 -->
+  <div class="card" data-cat="foundation" style="--accent:#0d9488;">
+    <div class="card-images single">
+      <img src="names_of_god.jpeg" alt="8 Names of God">
+      <div class="card-badge">Jehovah Series</div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Psalm 23 · Genesis 1 · Exodus 3 &amp; 17</div>
+      <div class="card-title">8 Names of God</div>
+      <div class="card-desc">Introduces eight covenant names of God — Jehovah Rohi (Shepherd), Jehovah Jireh (Provider), Jehovah Rapha (Healer), El Shaddai (Almighty) and more. Each name is taught through a Bible story that demonstrates that character of God in action. Children learn to call on the right name of God in different circumstances of life.</div>
+      <div class="card-tags">
+        <span class="tag" style="--tag-bg:#ccfbf1;--tag-color:#0f766e;">God's Character</span>
+        <span class="tag" style="--tag-bg:#ccfbf1;--tag-color:#0f766e;">Names of God</span>
+        <span class="tag" style="--tag-bg:#ccfbf1;--tag-color:#0f766e;">Trust</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="level-badge" style="--level-bg:#ccfbf1;--level-color:#0f766e;">Ages 7 – 19</span>
+      <div class="card-number" style="background:#0d9488;">3</div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="card" data-cat="foundation" style="--accent:#1d4ed8;">
+    <div class="card-images single">
+      <img src="az_god.jpeg" alt="A-Z Attributes of God">
+      <div class="card-badge">26-Part Series</div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Various Scriptures · Psalm 145 · Isaiah 40</div>
+      <div class="card-title">The A–Z Attributes of God</div>
+      <div class="card-desc">A comprehensive 26-session journey through every letter of the alphabet — each letter revealing a distinct attribute of God (Almighty, Brilliant, Compassionate, Deliverer…). Packed with Bible stories, memory anchors and real-life application. Ideal for a full year of teaching. Children finish the series with a deep, word-based understanding of who God truly is.</div>
+      <div class="card-tags">
+        <span class="tag" style="--tag-bg:#dbeafe;--tag-color:#1e40af;">Theology</span>
+        <span class="tag" style="--tag-bg:#dbeafe;--tag-color:#1e40af;">Memory Work</span>
+        <span class="tag" style="--tag-bg:#dbeafe;--tag-color:#1e40af;">Year-long</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="level-badge" style="--level-bg:#dbeafe;--level-color:#1e40af;">Ages 7 – 19</span>
+      <div class="card-number" style="background:#1d4ed8;">4</div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="card" data-cat="foundation" style="--accent:#7c3aed;">
+    <div class="card-images single">
+      <img src="eyes_wide.jpeg" alt="Eyes Wide Shut">
+      <div class="card-badge">10 Bible Instances</div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">2 Kings 6 · Luke 24 · Numbers 22 · Acts 9</div>
+      <div class="card-title">Eyes Wide Open Shut</div>
+      <div class="card-desc">Explores ten fascinating moments in Scripture when people "should have seen but did not" — Elisha's servant, the disciples on the road to Emmaus, Balaam and the angel, Paul on the road to Damascus and more. Teaches children the difference between physical sight and spiritual perception, and how to develop eyes of faith that see God at work in every situation.</div>
+      <div class="card-tags">
+        <span class="tag" style="--tag-bg:#ede9fe;--tag-color:#5b21b6;">Spiritual Sight</span>
+        <span class="tag" style="--tag-bg:#ede9fe;--tag-color:#5b21b6;">Faith</span>
+        <span class="tag" style="--tag-bg:#ede9fe;--tag-color:#5b21b6;">Discernment</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="level-badge" style="--level-bg:#ede9fe;--level-color:#5b21b6;">Ages 10 – 19</span>
+      <div class="card-number" style="background:#7c3aed;">5</div>
+    </div>
+  </div>
+
+</div><!-- /showcase -->
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 3 — PRAYER & WORSHIP
+════════════════════════════════════════════ -->
+<div class="section-label">
+  <h2>Prayer &amp; Worship</h2><hr>
+</div>
+
+<div class="showcase">
+
+  <!-- 6 -->
+  <div class="card" data-cat="prayer" style="--accent:#f59e0b;">
+    <div class="card-images single">
+      <img src="lords_prayer.jpeg" alt="The Lord's Prayer">
+      <div class="card-badge">Mat 6:9-13</div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Matthew 6:9–13 · Luke 11:1–4</div>
+      <div class="card-title">The Lord's Prayer</div>
+      <div class="card-desc">Breaks the Lord's Prayer into seven clauses and unpacks each one through a separate Bible story. Children learn to pray for the hallowing of God's name, the coming of His kingdom, daily provision, forgiveness of sins, and deliverance from evil — all through the stories of Abraham, Moses, the feeding of the 5,000, Hannah, Daniel and more. Prayer becomes a living conversation, not a memorised recitation.</div>
+      <div class="card-tags">
+        <span class="tag" style="--tag-bg:#fef3c7;--tag-color:#92400e;">Prayer</span>
+        <span class="tag" style="--tag-bg:#fef3c7;--tag-color:#92400e;">Forgiveness</span>
+        <span class="tag" style="--tag-bg:#fef3c7;--tag-color:#92400e;">Kingdom of God</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="level-badge" style="--level-bg:#fef3c7;--level-color:#92400e;">All Ages</span>
+      <div class="card-number" style="background:#f59e0b;">6</div>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="card" data-cat="prayer" style="--accent:#0d9488;">
+    <div class="card-images single">
+      <img src="prayer_lessons.jpeg" alt="5 Lessons on Prayer">
+      <div class="card-badge">5-Part Series</div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Various · James 5:16 · Philippians 4:6</div>
+      <div class="card-title">5 Lessons on Prayer</div>
+      <div class="card-desc">A practical five-session mini-course that teaches children how to pray — alone, together, in crisis, in praise and in intercession for others. Uses both modern prayer photos and biblical examples to make prayer feel natural and accessible. Each session ends with a guided group prayer exercise that puts the lesson into practice immediately. Builds confidence and consistency in children's prayer lives.</div>
+      <div class="card-tags">
+        <span class="tag" style="--tag-bg:#ccfbf1;--tag-color:#0f766e;">Intercession</span>
+        <span class="tag" style="--tag-bg:#ccfbf1;--tag-color:#0f766e;">Praise</span>
+        <span class="tag" style="--tag-bg:#ccfbf1;--tag-color:#0f766e;">Devotion</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="level-badge" style="--level-bg:#ccfbf1;--level-color:#0f766e;">Ages 7 – 19</span>
+      <div class="card-number" style="background:#0d9488;">7</div>
+    </div>
+  </div>
+
+</div><!-- /showcase -->
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 4 — CHARACTER & VALUES
+════════════════════════════════════════════ -->
+<div class="section-label">
+  <h2>Character &amp; Values</h2><hr>
+</div>
+
+<div class="showcase">
+
+  <!-- 8 -->
+  <div class="card" data-cat="character" style="--accent:#e91e8c;">
+    <div class="card-images single">
+      <img src="beatitudes.jpeg" alt="The Beatitudes">
+      <div class="card-badge">Matthew 5:3-10</div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Matthew 5:3–10 · Sermon on the Mount</div>
+      <div class="card-title">The Beatitudes</div>
+      <div class="card-desc">Teaches the eight Beatitudes through vivid Bible story illustrations — connecting each blessing to characters from Scripture who lived it out. Poor in spirit (Moses kneeling), merciful (the Good Samaritan), pure in heart (Joseph refusing Potiphar's wife), peacemakers (David sparing Saul) and more. Children learn that the Beatitudes describe the shape of a Christ-like character and the path to true blessing.</div>
+      <div class="card-tags">
+        <span class="tag" style="--tag-bg:#fce7f3;--tag-color:#be185d;">Character</span>
+        <span class="tag" style="--tag-bg:#fce7f3;--tag-color:#be185d;">Sermon on the Mount</span>
+        <span class="tag" style="--tag-bg:#fce7f3;--tag-color:#be185d;">Mercy</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="level-badge" style="--level-bg:#fce7f3;--level-color:#be185d;">Ages 7 – 19</span>
+      <div class="card-number" style="background:#e91e8c;">8</div>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="card" data-cat="character" style="--accent:#f97316;">
+    <div class="card-images single">
+      <img src="love.jpeg" alt="What Love Is">
+      <div class="card-badge">1 Cor 13:4-7</div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">1 Corinthians 13:4–7 · John 13:34–35</div>
+      <div class="card-title">What Love Is…</div>
+      <div class="card-desc">Unpacks every clause of Paul's famous love chapter through Bible story vignettes — patience (Joseph and his brothers), kindness (Ruth and Naomi), humility (Jesus washing feet), forgiveness (the Prodigal Son), and others. Goes beyond the wedding reading to show children that this kind of love is something they can practise in their own friendships, families and communities today.</div>
+      <div class="card-tags">
+        <span class="tag" style="--tag-bg:#ffedd5;--tag-color:#9a3412;">Love</span>
+        <span class="tag" style="--tag-bg:#ffedd5;--tag-color:#9a3412;">Relationships</span>
+        <span class="tag" style="--tag-bg:#ffedd5;--tag-color:#9a3412;">Forgiveness</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="level-badge" style="--level-bg:#ffedd5;--level-color:#9a3412;">All Ages</span>
+      <div class="card-number" style="background:#f97316;">9</div>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="card" data-cat="character" style="--accent:#dc2626;">
+    <div class="card-images single">
+      <img src="7things.jpeg" alt="7 Things God Hates">
+      <div class="card-badge">Proverbs 6:16-19</div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Proverbs 6:16–19</div>
+      <div class="card-title">7 Things That God Hates</div>
+      <div class="card-desc">Tackles the seven abominations listed in Proverbs 6 — pride, lying, murder, scheming, running to evil, false witness and sowing discord — through stark Bible stories of characters who fell into each trap. Rather than a lecture on sin, this lesson builds deep moral reasoning in children: each session asks "why does God hate this?" and "what does this cost us?" Powerful for older children and teens.</div>
+      <div class="card-tags">
+        <span class="tag" style="--tag-bg:#fee2e2;--tag-color:#991b1b;">Integrity</span>
+        <span class="tag" style="--tag-bg:#fee2e2;--tag-color:#991b1b;">Moral Reasoning</span>
+        <span class="tag" style="--tag-bg:#fee2e2;--tag-color:#991b1b;">Consequences</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="level-badge" style="--level-bg:#fee2e2;--level-color:#991b1b;">Ages 10 – 19</span>
+      <div class="card-number" style="background:#dc2626;">10</div>
+    </div>
+  </div>
+
+  <!-- 11 -->
+  <div class="card" data-cat="character" style="--accent:#0d9488;">
+    <div class="card-images single">
+      <img src="commandments.jpeg" alt="Ten Commandments">
+      <div class="card-badge">Exodus 20</div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Exodus 20:1–17 · Deuteronomy 5</div>
+      <div class="card-title">The Ten Commandments</div>
+      <div class="card-desc">Teaches each commandment through a matching Bible story — the golden calf (no other gods), David and Bathsheba (do not commit adultery), Cain and Abel (do not murder), Ananias and Sapphira (do not lie), the Sabbath in Exodus 16 and more. Children understand these not as cold rules but as God's loving design for how humans flourish together. The Sabbath commandment receives special focus with the full Exodus 20:8-10 text displayed.</div>
+      <div class="card-tags">
+        <span class="tag" style="--tag-bg:#ccfbf1;--tag-color:#0f766e;">Law of God</span>
+        <span class="tag" style="--tag-bg:#ccfbf1;--tag-color:#0f766e;">The Sabbath</span>
+        <span class="tag" style="--tag-bg:#ccfbf1;--tag-color:#0f766e;">Obedience</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="level-badge" style="--level-bg:#ccfbf1;--level-color:#0f766e;">Ages 7 – 19</span>
+      <div class="card-number" style="background:#0d9488;">11</div>
+    </div>
+  </div>
+
+  <!-- 12 -->
+  <div class="card" data-cat="character" style="--accent:#1d4ed8;">
+    <div class="card-images single">
+      <img src="church.jpeg" alt="The Church That Pleases God">
+      <div class="card-badge">Revelation 2-3</div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Revelation 2–3 · Acts 2</div>
+      <div class="card-title">The Church That Pleases God</div>
+      <div class="card-desc">Uses Christ's letters to the seven churches in Revelation to teach children what makes a healthy, God-honouring church community. Draws on stories of Mary and Martha (sitting at Jesus' feet), Daniel's three friends (refusing to compromise), the ten virgins (readiness), Peter's healing ministry and Nehemiah's crowd. Children discover their own role in building a church that Jesus would commend.</div>
+      <div class="card-tags">
+        <span class="tag" style="--tag-bg:#dbeafe;--tag-color:#1e40af;">The Church</span>
+        <span class="tag" style="--tag-bg:#dbeafe;--tag-color:#1e40af;">Faithfulness</span>
+        <span class="tag" style="--tag-bg:#dbeafe;--tag-color:#1e40af;">Readiness</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="level-badge" style="--level-bg:#dbeafe;--level-color:#1e40af;">Ages 10 – 19</span>
+      <div class="card-number" style="background:#1d4ed8;">12</div>
+    </div>
+  </div>
+
+</div><!-- /showcase -->
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 5 — HOLY SPIRIT
+════════════════════════════════════════════ -->
+<div class="section-label">
+  <h2>Holy Spirit</h2><hr>
+</div>
+
+<div class="showcase">
+
+  <!-- 13 -->
+  <div class="card" data-cat="holy-spirit" style="--accent:#f59e0b;">
+    <div class="card-images single">
+      <img src="fruit.jpeg" alt="Fruit of the Holy Spirit">
+      <div class="card-badge">Galatians 5:22-23</div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Galatians 5:22–23 · John 15:1–8</div>
+      <div class="card-title">Fruit of the Holy Spirit</div>
+      <div class="card-desc">Maps each of the nine fruits of the Spirit to a Bible hero who demonstrated it under pressure — love (Good Samaritan), joy (Paul and Silas in prison), peace (Daniel in the lion's den), patience (Job), kindness (Joseph forgiving his brothers), goodness (the boy who gave his lunch), faithfulness (Shadrach, Meshach and Abednego), gentleness and self-control. Children learn that fruit is grown by abiding, not striving.</div>
+      <div class="card-tags">
+        <span class="tag" style="--tag-bg:#fef3c7;--tag-color:#92400e;">Holy Spirit</span>
+        <span class="tag" style="--tag-bg:#fef3c7;--tag-color:#92400e;">Character</span>
+        <span class="tag" style="--tag-bg:#fef3c7;--tag-color:#92400e;">Abiding</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="level-badge" style="--level-bg:#fef3c7;--level-color:#92400e;">All Ages</span>
+      <div class="card-number" style="background:#f59e0b;">13</div>
+    </div>
+  </div>
+
+  <!-- 14 -->
+  <div class="card" data-cat="holy-spirit" style="--accent:#7c3aed;">
+    <div class="card-images single">
+      <img src="fruit_not.jpeg" alt="What the Fruit of the Holy Spirit is Not">
+      <div class="card-badge">Galatians 5:19-21</div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Galatians 5:19–21 · Romans 1</div>
+      <div class="card-title">What the Fruit of the Holy Spirit Is Not</div>
+      <div class="card-desc">The companion lesson to the Fruit series — examining the works of the flesh listed in Galatians 5: sexual immorality, idolatry (golden calf), discord (Absalom), jealousy (Joseph's brothers), drunkenness and more. Each negative example is presented with grace and without shame, making it clear that these are patterns a Spirit-filled life is being freed from. Vital for helping older children understand the contrast between a surrendered and unsurrendered life.</div>
+      <div class="card-tags">
+        <span class="tag" style="--tag-bg:#ede9fe;--tag-color:#5b21b6;">Works of Flesh</span>
+        <span class="tag" style="--tag-bg:#ede9fe;--tag-color:#5b21b6;">Transformation</span>
+        <span class="tag" style="--tag-bg:#ede9fe;--tag-color:#5b21b6;">Teens</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="level-badge" style="--level-bg:#ede9fe;--level-color:#5b21b6;">Ages 13 – 19</span>
+      <div class="card-number" style="background:#7c3aed;">14</div>
+    </div>
+  </div>
+
+  <!-- 15 -->
+  <div class="card" data-cat="holy-spirit" style="--accent:#1d4ed8;">
+    <div class="card-images single">
+      <img src="armor.jpeg" alt="The Full Armor of God">
+      <div class="card-badge">Ephesians 6:10-18</div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Ephesians 6:10–18</div>
+      <div class="card-title">The Full Armor of God</div>
+      <div class="card-desc">Teaches each piece of spiritual armour — belt of truth, breastplate of righteousness, shoes of the gospel, shield of faith, helmet of salvation and sword of the Spirit — through Bible stories of spiritual battles won. Jesus stilling the storm, David and Goliath, Zacchaeus choosing truth, Matthew leaving his tax table, Jonathan's friendship with David and the story of the widow's offering. Children finish knowing how to dress spiritually every single day.</div>
+      <div class="card-tags">
+        <span class="tag" style="--tag-bg:#dbeafe;--tag-color:#1e40af;">Spiritual Warfare</span>
+        <span class="tag" style="--tag-bg:#dbeafe;--tag-color:#1e40af;">Protection</span>
+        <span class="tag" style="--tag-bg:#dbeafe;--tag-color:#1e40af;">Daily Discipline</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="level-badge" style="--level-bg:#dbeafe;--level-color:#1e40af;">Ages 7 – 19</span>
+      <div class="card-number" style="background:#1d4ed8;">15</div>
+    </div>
+  </div>
+
+</div><!-- /showcase -->
+
+
+<!-- ═══════════════════════════════════════════
+     STANDALONE LESSON
+════════════════════════════════════════════ -->
+<div class="section-label">
+  <h2>Standalone &amp; Thematic</h2><hr>
+</div>
+
+<div class="showcase">
+
+  <!-- 16 -->
+  <div class="card" data-cat="character" style="--accent:#22c55e;">
+    <div class="card-images single">
+      <img src="eyes_wide.jpeg" alt="Eyes Wide Shut" style="display:none;">
+      <img src="church.jpeg" alt="placeholder" style="display:none;">
+      <!-- Using the standalone image already covered; use armor to fill visual -->
+      <img src="prayer_lessons.jpeg" alt="5 Lessons on Prayer visual">
+      <div class="card-badge">Bonus Module</div>
+    </div>
+    <div class="card-body">
+      <div class="card-ref">Various · Review &amp; Consolidation</div>
+      <div class="card-title">Young Disciple Series — Full Overview</div>
+      <div class="card-desc">All 16 lesson units form a structured, progressive discipleship pathway from age 3 to 19 under LuvWay Kenya's GROW framework. Each unit is available as a standalone lesson pack or bundled into a term-plan. Teachers receive illustrated lesson guides, memory verse cards, activity sheets and group discussion questions — everything needed to run a full Bible Club session even with minimal resources.</div>
+      <div class="card-tags">
+        <span class="tag" style="--tag-bg:#dcfce7;--tag-color:#14532d;">GROW Framework</span>
+        <span class="tag" style="--tag-bg:#dcfce7;--tag-color:#14532d;">Teacher Pack</span>
+        <span class="tag" style="--tag-bg:#dcfce7;--tag-color:#14532d;">Full Curriculum</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="level-badge" style="--level-bg:#dcfce7;--level-color:#14532d;">Ages 3 – 19</span>
+      <div class="card-number" style="background:#22c55e;">16</div>
+    </div>
+  </div>
+
+</div><!-- /showcase -->
+
+
+<!-- FOOTER -->
+<div class="rainbow"></div>
+<footer class="page-footer">
+  <strong>LuvWay Kenya · Young Disciple Series</strong> — Visual Lesson Showcase &nbsp;|&nbsp; Curriculum by Beatrice Atieno Ofwona &nbsp;|&nbsp;
+  <a href="https://wa.me/254732994900" style="color:#86efac;">📲 WhatsApp to request materials</a>
+</footer>
+
+
+<script>
+  /* ─── SCROLL REVEAL ─── */
+  const cards = document.querySelectorAll('.card');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  cards.forEach(c => io.observe(c));
+
+  /* ─── FILTER ─── */
+  function filterCards(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.card').forEach(c => {
+      const match = cat === 'all' || c.dataset.cat === cat;
+      c.style.display = match ? '' : 'none';
+    });
+  }
+</script>
+</body>
+</html>
