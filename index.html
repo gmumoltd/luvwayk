@@ -8,676 +8,618 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-
 </head>
 
 <body>
 
-    <body>
-
-        <!-- INTRO SCREEN — paste this first, before everything -->
-        <div id="intro-screen" style="
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    transition: opacity 0.8s ease;
-  ">
-            <div id="logo-wrap" style="opacity:0; transform:scale(0.4); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.34,1.56,0.64,1);">
-                <img src="assets/images/luvway_logo.png" width="220" alt="LuvWay Kenya">
-            </div>
-
-            <div id="grow-wrap" style="position:absolute; display:flex; gap:12px; opacity:0;">
-                <span id="lG" class="g-letter" style="color:#e91e8c;">G</span>
-                <span id="lR" class="g-letter" style="color:#f59e0b;">R</span>
-                <span id="lO" class="g-letter" style="color:#22c55e;">O</span>
-                <span id="lW" class="g-letter" style="color:#3b82f6;">W</span>
-            </div>
-
-            <div id="intro-tagline" style="position:absolute; bottom:80px; font-size:15px; letter-spacing:2px; opacity:0; transition: opacity 0.8s ease;">
-                Changing Lives, Inspiring Possibilities
-            </div>
+    <!-- INTRO SCREEN -->
+    <div id="intro-screen" style="
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.8s ease;
+    ">
+        <div id="logo-wrap" style="opacity:0; transform:scale(0.4); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.34,1.56,0.64,1);">
+            <img src="assets/images/luvway_logo.png" width="220" alt="LuvWay Kenya">
         </div>
 
+        <div id="grow-wrap" style="position:absolute; display:flex; gap:12px; opacity:0;">
+            <span id="lG" class="g-letter" style="color:#e91e8c;">G</span>
+            <span id="lR" class="g-letter" style="color:#f59e0b;">R</span>
+            <span id="lO" class="g-letter" style="color:#22c55e;">O</span>
+            <span id="lW" class="g-letter" style="color:#3b82f6;">W</span>
+        </div>
 
-        <!-- NAV -->
-        <nav>
+        <div id="intro-tagline" style="position:absolute; bottom:80px; font-size:15px; letter-spacing:2px; opacity:0; transition: opacity 0.8s ease;">
+            Changing Lives, Inspiring Possibilities
+        </div>
+    </div>
 
-            <div class="nav-logo">
-                <img src="assets/images/luvway_logo.png" alt="LuvWay Kenya">
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-logo">
+            <img src="assets/images/luvway_logo.png" alt="LuvWay Kenya">
+        </div>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="curriculum.html">Curriculum</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#testimonials">Stories</a></li>
+            <li><a href="#founder">Founder</a></li>
+            <li><a href="get-involved.html" class="nav-cta">Get Involved</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-text fade-up">
+            <p class="hero-eyebrow">LuvWay Kenya</p>
+            <h1 class="hero-title">Changing Lives,<br><span>Inspiring</span><br>Possibilities.</h1>
+            <p class="hero-sub">We pour into the lives of children across Kenya through intentional evangelism, discipleship, worship, feeding programs, and mentorship — so they may pour out into the world.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Donate via WhatsApp</a>
+                <a href="#about" class="btn-secondary">Our Story</a>
             </div>
-            <button class="hamburger" id="hamburger">
-          &#9776;
-            </button>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#programs">Programs</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#testimonials">Stories</a></li>
-                <li><a href="#founder">Founder</a></li>
-                <li><a href="get-involved.html" class="nav-cta">Get Involved</a></li>
-            </ul>
-        </nav>
-
-        <!-- HERO -->
-        <section class="hero" id="home">
-            <div class="hero-text fade-up">
-                <p class="hero-eyebrow">LuvWay Kenya</p>
-                <h1 class="hero-title">Changing Lives,<br><span>Inspiring</span><br>Possibilities.</h1>
-                <p class="hero-sub">We pour into the lives of children across Kenya through intentional evangelism, discipleship, worship, feeding programs, and mentorship — so they may pour out into the world.</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn-primary">Donate via WhatsApp</a>
-                    <a href="#about" class="btn-secondary">Our Story</a>
-                </div>
+        </div>
+        <div class="hero-image fade-up">
+            <img src="assets/images/gallery_5.jpg" alt="Children at LuvWay Kenya">
+            <div class="hero-badge">
+                <span>1000+</span> Children Reached<br>Across Kenya
             </div>
-            <div class="hero-image fade-up">
-                <img src="assets/images/gallery_5.jpg" alt="Children at LuvWay Kenya">
-                <div class="hero-badge">
-                    <span>1000+</span> Children Reached<br>Across Kenya
-                </div>
+        </div>
+    </section>
+
+    <div class="rainbow-strip"></div>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="about-grid">
+            <div class="about-image-wrap fade-up">
+                <img src="assets/images/luvway_logo.png" alt="LuvWay Children">
+                <div class="about-accent"></div>
+                <div class="about-accent2"></div>
             </div>
-        </section>
-
-        <div class="rainbow-strip"></div>
-
-        <!-- ABOUT -->
-        <section id="about">
-            <div class="about-grid">
-                <div class="about-image-wrap fade-up">
-                    <img src="assets/images/luvway_logo.png" alt="LuvWay Children">
-                    <div class="about-accent"></div>
-                    <div class="about-accent2"></div>
-                </div>
-                <div class="fade-up">
-                    <p class="section-tag">Who We Are</p>
-                    <h2 class="section-title">Rooted in Love,<br>Growing in Faith</h2>
-                    <p class="section-sub">LuvWay Kenya is a children's ministry operating since 2016 across Nairobi, Kiambu, Kilifi and Mombasa counties. Our mission is the spiritual growth of children through intentional evangelism, discipleship and worship.</p>
-                    <p class="section-sub" style="margin-top:1rem">We run Saturday Bible Clubs, school programs, feeding initiatives, teens' mentorship, and Vacational Bible Schools — partnering with churches, schools and children's homes to raise a generation that knows God.</p>
-                    <div class="grow-list">
-                        <div class="grow-item">
-                            <div class="grow-letter g-g">G</div>
-                            <div>
-                                <p>Go to church</p><span>Encouraging children to be part of the body of Christ</span></div>
+            <div class="fade-up">
+                <p class="section-tag">Who We Are</p>
+                <h2 class="section-title">Rooted in Love,<br>Growing in Faith</h2>
+                <p class="section-sub">LuvWay Kenya is a children's ministry operating since 2016 across Nairobi, Kiambu, Kilifi and Mombasa counties. Our mission is the spiritual growth of children through intentional evangelism, discipleship and worship.</p>
+                <p class="section-sub" style="margin-top:1rem">We run Saturday Bible Clubs, school programs, feeding initiatives, teens' mentorship, and Vacational Bible Schools — partnering with churches, schools and children's homes to raise a generation that knows God.</p>
+                <div class="grow-list">
+                    <div class="grow-item">
+                        <div class="grow-letter g-g">G</div>
+                        <div>
+                            <p>Go to church</p>
+                            <span>Encouraging children to be part of the body of Christ</span>
                         </div>
-                        <div class="grow-item">
-                            <div class="grow-letter g-r">R</div>
-                            <div>
-                                <p>Read the Bible and Pray</p><span>Daily grounding in the Word of God</span></div>
+                    </div>
+                    <div class="grow-item">
+                        <div class="grow-letter g-r">R</div>
+                        <div>
+                            <p>Read the Bible and Pray</p>
+                            <span>Daily grounding in the Word of God</span>
                         </div>
-                        <div class="grow-item">
-                            <div class="grow-letter g-o">O</div>
-                            <div>
-                                <p>Obey the Word of God</p><span>Living out what is learned with integrity</span></div>
+                    </div>
+                    <div class="grow-item">
+                        <div class="grow-letter g-o">O</div>
+                        <div>
+                            <p>Obey the Word of God</p>
+                            <span>Living out what is learned with integrity</span>
                         </div>
-                        <div class="grow-item">
-                            <div class="grow-letter g-w">W</div>
-                            <div>
-                                <p>Witness to Other Children</p><span>Sharing the message of Jesus Christ with peers</span></div>
+                    </div>
+                    <div class="grow-item">
+                        <div class="grow-letter g-w">W</div>
+                        <div>
+                            <p>Witness to Other Children</p>
+                            <span>Sharing the message of Jesus Christ with peers</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- STATS -->
-        <section class="stats-section">
-            <div class="stats-grid">
-                <div class="stat-item fade-up">
-                    <div class="stat-number">1000+</div>
-                    <div class="stat-label">Children Reached Per County</div>
-                </div>
-                <div class="stat-item fade-up">
-                    <div class="stat-number">300+</div>
-                    <div class="stat-label">Teachers Trained Since 2016</div>
-                </div>
-                <div class="stat-item fade-up">
-                    <div class="stat-number">12+</div>
-                    <div class="stat-label">Active Bible Club Locations</div>
-                </div>
-                <div class="stat-item fade-up">
-                    <div class="stat-number">47</div>
-                    <div class="stat-label">Kenya Counties in Our Vision</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROGRAMS -->
-        <section id="programs">
-            <div style="text-align:center; margin-bottom:1rem;" class="fade-up">
-                <p class="section-tag">What We Do</p>
-                <h2 class="section-title">Our Programs</h2>
-                <p class="section-sub" style="margin:0 auto">Every program is designed to nourish children spiritually, physically, and emotionally — meeting them where they are.</p>
-            </div>
-            <div class="programs-grid">
-                <div class="program-card fade-up">
-                    <div class="program-icon">📖</div>
-                    <h3>Saturday Bible Clubs</h3>
-                    <p>Weekly Bible clubs in churches, schools and open-field spaces. Children are taught the Word of God, fed a meal, and engaged through curriculum we have developed over 10 years.</p>
-                </div>
-                <div class="program-card fade-up">
-                    <div class="program-icon">🍽️</div>
-                    <h3>Feeding Program</h3>
-                    <p>Rice, beans, porridge or tea-and-snack are provided at every Bible club meeting. Hunger should never be a barrier to learning about God's love.</p>
-                </div>
-                <div class="program-card fade-up">
-                    <div class="program-icon">🏫</div>
-                    <h3>School Ministry (PPI)</h3>
-                    <p>Primary school outreach through the PPI program, bringing the Word into classrooms and reaching children who may never step into a church.</p>
-                </div>
-                <div class="program-card fade-up">
-                    <div class="program-icon">🎭</div>
-                    <h3>Music, Drama & Talent</h3>
-                    <p>Yearly festivals of plays, songs, Christian poems and talent shows that give children a sense of purpose and joy while sharing the Gospel creatively.</p>
-                </div>
-                <div class="program-card fade-up">
-                    <div class="program-icon">🌟</div>
-                    <h3>Teens & Youth Mentorship</h3>
-                    <p>Dedicated teens' weeks addressing real issues. Older children who come through the program are mentored to become teachers themselves after age 19.</p>
-                </div>
-                <div class="program-card fade-up">
-                    <div class="program-icon">🏕️</div>
-                    <h3>Vacational Bible School</h3>
-                    <p>Week-long in-depth Bible studies during school holidays — 7+ locations across Kenya — keeping children engaged, learning, and far from idleness.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- GALLERY -->
-        <section id="gallery" style="background:var(--light-gray);">
-            <div class="gallery-header fade-up">
-                <p class="section-tag">Our Moments</p>
-                <h2 class="section-title">Life at LuvWay Kenya</h2>
-                <p class="section-sub" style="margin:0 auto">Snapshots of joy, learning, worship and community from across our Bible clubs and programs.</p>
-            </div>
-            <div class="gallery-grid">
-                <!-- All gallery + activity images -->
-                <div class="gallery-item" onclick="openLightbox(0)">
-                    <img src="assets/images/gallery_1.jpg" alt="LuvWay Activity" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(1)">
-                    <img src="assets/images/gallery_2.jpg" alt="LuvWay Activity" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(2)">
-                    <img src="assets/images/gallery_3.jpg" alt="LuvWay Activity" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(3)">
-                    <img src="assets/images/gallery_4.jpg" alt="LuvWay Activity" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(4)">
-                    <img src="assets/images/gallery_5.jpg" alt="LuvWay Children" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(5)">
-                    <img src="assets/images/gallery_6.jpg" alt="LuvWay Children" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(6)">
-                    <img src="assets/images/gallery_7.jpg" alt="LuvWay Activity" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(7)">
-                    <img src="assets/images/gallery_8.jpg" alt="LuvWay Activity" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(8)">
-                    <img src="assets/images/gallery_9.jpg" alt="LuvWay Children" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(9)">
-                    <img src="assets/images/gallery_10.jpg" alt="LuvWay Children" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(10)">
-                    <img src="assets/images/gallery_11.jpg" alt="LuvWay Children" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(11)">
-                    <img src="assets/images/activities_12.jpg" alt="LuvWay Activities" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(12)">
-                    <img src="assets/images/activities_13.jpg" alt="LuvWay Activities" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(13)">
-                    <img src="assets/images/activities_14.jpg" alt="LuvWay Activities" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(14)">
-                    <img src="assets/images/activities_15.jpg" alt="LuvWay Activities" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(15)">
-                    <img src="assets/images/activities_16.jpg" alt="LuvWay Activities" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(16)">
-                    <img src="assets/images/activities_17.jpg" alt="LuvWay Activities" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(17)">
-                    <img src="assets/images/activities_18.jpg" alt="LuvWay Activities" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(18)">
-                    <img src="assets/images/activities_19.jpg" alt="LuvWay Activities" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(19)">
-                    <img src="assets/images/activities_20.jpg" alt="LuvWay Activities" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(20)">
-                    <img src="assets/images/activities_21.jpg" alt="LuvWay Activities" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(21)">
-                    <img src="assets/images/activities_22.jpg" alt="LuvWay Activities" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(22)">
-                    <img src="assets/images/activities_23.jpg" alt="LuvWay Activities" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(23)">
-                    <img src="assets/images/activities_24.jpg" alt="LuvWay Activities" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(24)">
-                    <img src="assets/images/activities_25.jpg" alt="LuvWay Activities" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(25)">
-                    <img src="assets/images/activities_26.jpg" alt="LuvWay Activities" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(26)">
-                    <img src="assets/images/activities_27.jpg" alt="LuvWay Activities" loading="lazy">
-                    <div class="gallery-overlay"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- LIGHTBOX -->
-        <div class="lightbox" id="lightbox">
-            <span class="lightbox-close" onclick="closeLightbox()">×</span>
-            <button class="lightbox-nav" id="lb-prev" onclick="lbNav(-1)">‹</button>
-            <img id="lb-img" src="" alt="">
-            <button class="lightbox-nav" id="lb-next" onclick="lbNav(1)">›</button>
         </div>
+    </section>
 
-        <!-- TESTIMONIALS -->
-        <section id="testimonials" class="testimonials-section">
-            <div class="testimonials-header fade-up">
-                <h3><span>Testimonials coming soon</span></h3>
-                <!-- <p class="section-tag">Real Stories</p>
+
+    <!-- STATS -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item fade-up">
+                <div class="stat-number">1000+</div>
+                <div class="stat-label">Children Reached Per County</div>
+            </div>
+            <div class="stat-item fade-up">
+                <div class="stat-number">300+</div>
+                <div class="stat-label">Teachers Trained Since 2016</div>
+            </div>
+            <div class="stat-item fade-up">
+                <div class="stat-number">12+</div>
+                <div class="stat-label">Active Bible Club Locations</div>
+            </div>
+            <div class="stat-item fade-up">
+                <div class="stat-number">47</div>
+                <div class="stat-label">Kenya Counties in Our Vision</div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PROGRAMS -->
+    <section id="programs">
+        <div style="text-align:center; margin-bottom:1rem;" class="fade-up">
+            <p class="section-tag">What We Do</p>
+            <h2 class="section-title">Our Programs</h2>
+            <p class="section-sub" style="margin:0 auto">Every program is designed to nourish children spiritually, physically, and emotionally — meeting them where they are.</p>
+        </div>
+        <div class="programs-grid">
+            <div class="program-card fade-up">
+                <div class="program-icon">📖</div>
+                <h3>Saturday Bible Clubs</h3>
+                <p>Weekly Bible clubs in churches, schools and open-field spaces. Children are taught the Word of God, fed a meal, and engaged through curriculum we have developed over 10 years.</p>
+            </div>
+            <div class="program-card fade-up">
+                <div class="program-icon">🍽️</div>
+                <h3>Feeding Program</h3>
+                <p>Rice, beans, porridge or tea-and-snack are provided at every Bible club meeting. Hunger should never be a barrier to learning about God's love.</p>
+            </div>
+            <div class="program-card fade-up">
+                <div class="program-icon">🏫</div>
+                <h3>School Ministry (PPI)</h3>
+                <p>Primary school outreach through the PPI program, bringing the Word into classrooms and reaching children who may never step into a church.</p>
+            </div>
+            <div class="program-card fade-up">
+                <div class="program-icon">🎭</div>
+                <h3>Music, Drama & Talent</h3>
+                <p>Yearly festivals of plays, songs, Christian poems and talent shows that give children a sense of purpose and joy while sharing the Gospel creatively.</p>
+            </div>
+            <div class="program-card fade-up">
+                <div class="program-icon">🌟</div>
+                <h3>Teens & Youth Mentorship</h3>
+                <p>Dedicated teens' weeks addressing real issues. Older children who come through the program are mentored to become teachers themselves after age 19.</p>
+            </div>
+            <div class="program-card fade-up">
+                <div class="program-icon">🏕️</div>
+                <h3>Vacational Bible School</h3>
+                <p>Week-long in-depth Bible studies during school holidays — 7+ locations across Kenya — keeping children engaged, learning, and far from idleness.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- GALLERY -->
+    <section id="gallery" style="background:var(--light-gray);">
+        <div class="gallery-header fade-up">
+            <p class="section-tag">Our Moments</p>
+            <h2 class="section-title">Life at LuvWay Kenya</h2>
+            <p class="section-sub" style="margin:0 auto">Snapshots of joy, learning, worship and community from across our Bible clubs and programs.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openLightbox(0)"><img src="assets/images/gallery_1.jpg" alt="LuvWay Activity" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(1)"><img src="assets/images/gallery_2.jpg" alt="LuvWay Activity" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(2)"><img src="assets/images/gallery_3.jpg" alt="LuvWay Activity" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(3)"><img src="assets/images/gallery_4.jpg" alt="LuvWay Activity" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(4)"><img src="assets/images/gallery_5.jpg" alt="LuvWay Children" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(5)"><img src="assets/images/gallery_6.jpg" alt="LuvWay Children" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(6)"><img src="assets/images/gallery_7.jpg" alt="LuvWay Activity" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(7)"><img src="assets/images/gallery_8.jpg" alt="LuvWay Activity" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(8)"><img src="assets/images/gallery_9.jpg" alt="LuvWay Children" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(9)"><img src="assets/images/gallery_10.jpg" alt="LuvWay Children" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(10)"><img src="assets/images/gallery_11.jpg" alt="LuvWay Children" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(11)"><img src="assets/images/activities_12.jpg" alt="LuvWay Activities" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(12)"><img src="assets/images/activities_13.jpg" alt="LuvWay Activities" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(13)"><img src="assets/images/activities_14.jpg" alt="LuvWay Activities" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(14)"><img src="assets/images/activities_15.jpg" alt="LuvWay Activities" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(15)"><img src="assets/images/activities_16.jpg" alt="LuvWay Activities" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(16)"><img src="assets/images/activities_17.jpg" alt="LuvWay Activities" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(17)"><img src="assets/images/activities_18.jpg" alt="LuvWay Activities" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(18)"><img src="assets/images/activities_19.jpg" alt="LuvWay Activities" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(19)"><img src="assets/images/activities_20.jpg" alt="LuvWay Activities" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(20)"><img src="assets/images/activities_21.jpg" alt="LuvWay Activities" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(21)"><img src="assets/images/activities_22.jpg" alt="LuvWay Activities" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(22)"><img src="assets/images/activities_23.jpg" alt="LuvWay Activities" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(23)"><img src="assets/images/activities_24.jpg" alt="LuvWay Activities" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(24)"><img src="assets/images/activities_25.jpg" alt="LuvWay Activities" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(25)"><img src="assets/images/activities_26.jpg" alt="LuvWay Activities" loading="lazy"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item" onclick="openLightbox(26)"><img src="assets/images/activities_27.jpg" alt="LuvWay Activities" loading="lazy"><div class="gallery-overlay"></div></div>
+        </div>
+    </section>
+
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">×</span>
+        <button class="lightbox-nav" id="lb-prev" onclick="lbNav(-1)">‹</button>
+        <img id="lb-img" src="" alt="">
+        <button class="lightbox-nav" id="lb-next" onclick="lbNav(1)">›</button>
+    </div>
+
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="testimonials-header fade-up">
+            <p class="section-tag">Real Stories</p>
             <h2 class="section-title">Lives Being Changed</h2>
-            <p class="section-sub">These are profiles of real children and families whose lives have been touched through LuvWay Kenya's Bible Clubs and programs.</p>
+            <p class="section-sub">These are real words from real families across Nairobi — mothers, grandmothers, volunteers and children — whose lives have been touched through LuvWay Kenya's Bible Clubs, feeding programs and outreach.</p>
         </div>
         <div class="testimonials-grid">
-            <div class="testimonial-card fade-up">
-                <p class="t-child-name">Ann Napeyok's Family</p>
-                <p class="t-grade">Kabuku, Limuru — 4 children in the Bible Club</p>
-                <p class="t-quote">Ann is a born-again mother who attends a local church at Kabuku-Limuru. All four of her children — from Grade 1 to Grade 6 — are now active beneficiaries of the Kabuku Bible Club. The program has given her children both spiritual grounding
-                    and a safe space to grow.</p>
-            </div>
-            <div class="testimonial-card fade-up">
-                <p class="t-child-name">Shalom Baraza, 16</p>
-                <p class="t-grade">Bible Club Teen Leader — Kabuku</p>
-                <p class="t-quote">Shalom has grown up through the Bible Club and now leads his age-mates. He is the captain of the Bible Club football team and has become a role model among the teens. He lives with his father, stepmother and five siblings — the program
-                    has been a lifeline of discipline and purpose for him.</p>
-            </div>
-            <div class="testimonial-card fade-up">
-                <p class="t-child-name">Hannah Munyua</p>
-                <p class="t-grade">Single Mother of 5 — Kabuku-Limuru</p>
-                <p class="t-quote">Hannah is a 38-year-old born-again single mother raising Mary, Faith, Ian, Allan and Christine on her own as a manual farm laborer. LuvWay's Bible Club gives her children spiritual education and feeding she cannot always provide alone
-                    — "I am grateful they know God's Word."</p>
-            </div>
-            <div class="testimonial-card fade-up">
-                <p class="t-child-name">Loise Baraza Odongo</p>
-                <p class="t-grade">Grandmother — Raising 3 Grandchildren</p>
-                <p class="t-quote">A 45-year-old grandmother, Loise is raising Bravin, Brownie and Brighton after her two sons left them in her care. The Bible Club provides the young children with structure, learning and warm meals — things she struggles to give on her
-                    own.
-                </p>
-            </div>
-            <div class="testimonial-card fade-up">
-                <p class="t-child-name">Kelvin Kalonzo, 15</p>
-                <p class="t-grade">Grade 8 — Kabuku Bible Club</p>
-                <p class="t-quote">Kelvin is a bright teenager who found belonging and faith through the Bible Club. His journey from a vulnerable background to a young man with purpose and aspiration reflects everything LuvWay Kenya stands for — "Changing Lives, Inspiring
-                    Possibilities."
-                </p>
-            </div>
-            <div class="testimonial-card fade-up">
-                <p class="t-child-name">Evaline Kadali's Children</p>
-                <p class="t-grade">Kabuku-Limuru — 3 children not yet in school</p>
-                <p class="t-quote">Evaline is a mother of 5. Three of her younger children — Saisi, Emmanuel and Thomas — live in Kabuku-Limuru but had not been enrolled in school. LuvWay's outreach connected them to the Bible Club, providing education, fellowship and hope
-                    while Evaline works to secure their future.</p>
-            </div> -->
-            </div>
-        </section>
 
-        <!-- FOUNDER -->
-        <section id="founder" class="founder-section">
-            <div class="founder-grid">
-                <div class="founder-photo fade-up">
-                    <img src="assets/images/beatrice_founder.jpg" alt="Beatrice Atieno Ofwona — Founder, LuvWay Kenya">
-                    <div class="founder-ribbon">
-                        <strong>Beatrice Atieno Ofwona</strong>
-                        <span>Founder & Vision Bearer — LuvWay Kenya</span>
+            <div class="testimonial-card fade-up">
+                <p class="t-child-name">Anna Napeiyok, 38</p>
+                <p class="t-grade">Family of 8 children — Kabuku, Limuru</p>
+                <p class="t-quote">I am moved to tears when I think of how Luv Way has been good to me and to my family. The food was truly the best demonstration of how much this ministry cares. It has meant everything to us.</p>
+                <span class="t-location">📍 Kabuku Bible Club</span>
+            </div>
+
+            <div class="testimonial-card fade-up">
+                <p class="t-child-name">Esther Muthoni (Mama Shiko)</p>
+                <p class="t-grade">Single Mother — Born Again, Kabuku</p>
+                <p class="t-quote">The food was a miracle, and I cannot express the joy I felt when it was brought to my home. You brought us the very best. May God bless all the families behind this giving, and may He bless Luv Way abundantly.</p>
+                <span class="t-location">📍 Kabuku Bible Club</span>
+            </div>
+
+            <div class="testimonial-card fade-up">
+                <p class="t-child-name">Jane Kanini</p>
+                <p class="t-grade">Recently Widowed — 4 Children, Kabuku</p>
+                <p class="t-quote">I have no words to express my gratitude for the food God provided through Luv Way. This was a confirmation of God's goodness at our lowest moment. God bless all those who gave and who continue to give.</p>
+                <span class="t-location">📍 Kabuku Bible Club</span>
+            </div>
+
+            <div class="testimonial-card fade-up">
+                <p class="t-child-name">Irene Wairimu, 30</p>
+                <p class="t-grade">Single Mother, Casual Labourer — Born Again</p>
+                <p class="t-quote">Since Covid-19, finding work has been very difficult. We have had to go to bed with only a cup of black tea. Without this food, I do not know how we would have survived. We thank the Lord for His provisions through Luv Way — your consistent care has been our strength.</p>
+                <span class="t-location">📍 Kabuku, Limuru</span>
+            </div>
+
+            <div class="testimonial-card fade-up">
+                <p class="t-child-name">Loice Baraza, 54</p>
+                <p class="t-grade">Widow raising 3 Grandchildren — Born Again</p>
+                <p class="t-quote">There have been many times I have slept hungry just to ensure my three grandchildren eat whatever little we had. This last month, my grandchildren ate at least one full meal every day. Luv Way and Kabuku Bible Club will forever be in my heart.</p>
+                <span class="t-location">📍 Kabuku Bible Club</span>
+            </div>
+
+            <div class="testimonial-card fade-up">
+                <p class="t-child-name">Miriam Wambui Kamau</p>
+                <p class="t-grade">Widowed Mother of 8 — Kabuku</p>
+                <p class="t-quote">I am grateful to God because He gave enough food for me and my children to last almost a month. Our greatest challenge has been food, especially for the younger ones. Because of Luv Way, we were able to eat and even share with other needy families around us.</p>
+                <span class="t-location">📍 Kabuku Bible Club</span>
+            </div>
+
+            <div class="testimonial-card fade-up">
+                <p class="t-child-name">Mary Nyakwara (Mama Njori)</p>
+                <p class="t-grade">Born Again Christian — 6 Children, Kabuku</p>
+                <p class="t-quote">I am so grateful to Luv Way and I bless every person who contributed to this food package. When I came home and found it, I could only praise God. May He bless all those who continue to support this work for families like mine.</p>
+                <span class="t-location">📍 Kabuku Bible Club</span>
+            </div>
+
+            <div class="testimonial-card fade-up">
+                <p class="t-child-name">Grace Waithera</p>
+                <p class="t-grade">First-time Beneficiary — Dandora</p>
+                <p class="t-quote">When I came home after a long day at the farm, I almost cried. I entered the house and found the food — I said a prayer of thanksgiving right then and there. May God expand Luv Way's boundaries so that they can reach even more families across Kenya.</p>
+                <span class="t-location">📍 Dandora Outreach</span>
+            </div>
+
+            <div class="testimonial-card fade-up">
+                <p class="t-child-name">Rachel Thoni Kamee</p>
+                <p class="t-grade">Kabuku Bible Club Volunteer — Born Again</p>
+                <p class="t-quote">We are very grateful — this food helped us feed our family for weeks, and we were also able to share with other needy families who came to us in their time of need. We thank God for Luv Way and the Kabuku Bible Club family.</p>
+                <span class="t-location">📍 Kabuku Bible Club</span>
+            </div>
+
+            <div class="testimonial-card fade-up">
+                <p class="t-child-name">Mary Mumbi</p>
+                <p class="t-grade">Born Again — Kabuku</p>
+                <p class="t-quote">I have no words to say thank you to all the people who took part in Luv Way's giving. I thank God for this food. I will always speak of the goodness of God that I have seen through this ministry and the people who support it.</p>
+                <span class="t-location">📍 Kabuku Bible Club</span>
+            </div>
+
+            <div class="testimonial-card fade-up">
+                <p class="t-child-name">Rose Kaloki</p>
+                <p class="t-grade">Mathare — Family of 5, Born Again</p>
+                <p class="t-quote">For the first time in a long time, we completed the month without running into debt at the shops. We always had to take food on credit. Since Luv Way brought us food, we have not had to borrow. This blessing is more than I can describe.</p>
+                <span class="t-location">📍 Mathare Outreach</span>
+            </div>
+
+            <div class="testimonial-card fade-up">
+                <p class="t-child-name">Mama Bernice</p>
+                <p class="t-grade">Born Again — Kabuku/Dandora</p>
+                <p class="t-quote">I have seen that God remembers me. After 18 years of struggle raising my children alone, this food arriving was proof that He has never forgotten. I am grateful beyond what words can carry. God remembers me.</p>
+                <span class="t-location">📍 LuvWay Outreach</span>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FOUNDER -->
+    <section id="founder" class="founder-section">
+        <div class="founder-grid">
+            <div class="founder-photo fade-up">
+                <img src="assets/images/beatrice_founder.jpg" alt="Beatrice Atieno Ofwona — Founder, LuvWay Kenya">
+                <div class="founder-ribbon">
+                    <strong>Beatrice Atieno Ofwona</strong>
+                    <span>Founder & Vision Bearer — LuvWay Kenya</span>
+                </div>
+            </div>
+            <div class="fade-up">
+                <p class="section-tag">Our Founder</p>
+                <h2 class="section-title">A Heart for the<br>Next Generation</h2>
+                <blockquote>"Our vision is for a remnant generation of children who have chosen to GROW in the knowledge of God — to Go to church, Read the Bible and pray, Obey the Word of God, and Witness to other children."</blockquote>
+                <p class="section-sub">Beatrice Atieno Ofwona founded LuvWay Kenya in 2016 with a burning conviction that the church must urgently address the spiritual vacuum in the lives of children across Kenya. She has personally trained over 350 teachers, pioneered Bible clubs in Nairobi, Mombasa, Kiambu and Kilifi, and continues to expand the vision to all 47 counties.</p>
+                <p class="section-sub" style="margin-top:1rem">With a 10-year curriculum developed from hands-on ministry, Beatrice leads a team that feeds, teaches and mentors thousands of children each year — Several Bible clubs at a time.</p>
+                <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+                    <a href="https://wa.me/254732994900" target="_blank" class="btn-primary">Connect with Beatrice</a>
+                    <a href="https://www.youtube.com/live/EkNqCC9akxE?si=-QWmjBVpzEMojJdU" target="_blank" class="btn-secondary">Lift Jesus Higher 🙏 on YouTube</a>
+                </div>
+                <div style="margin-top:1rem; display:flex; gap:1rem; flex-wrap:wrap;">
+                    <a href="https://www.youtube.com/@Neema-w7t" target="_blank" class="btn-secondary">View Her YouTube Channel</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+        <div class="fade-up" style="text-align:center; margin-bottom:3rem;">
+            <p class="section-tag">Get Involved</p>
+            <h2 class="section-title">Partner With Us</h2>
+            <p class="section-sub" style="margin:0 auto">Whether you want to donate, volunteer, pray or partner — we would love to hear from you. Every contribution changes a child's life.</p>
+        </div>
+        <div class="contact-grid">
+            <div class="fade-up">
+                <h3 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:0.5rem;">Contact Information</h3>
+                <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1rem;">Reach us directly through any of these channels.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon ci-phone">📞</div>
+                        <div>
+                            <h4>Phone</h4>
+                            <a href="tel:+254732994900">+254 732 994 900</a><br>
+                            <a href="tel:+254742339580">+254 742 339 580</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon ci-email">✉️</div>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:luvwayke22@gmail.com">luvwayke22@gmail.com</a><br>
+                            <a href="mailto:xlucylina84@gmail.com">xlucylina84@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon ci-wa">💬</div>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <a href="https://wa.me/254732994900" target="_blank">Chat on WhatsApp → +254 732 994 900</a>
+                        </div>
                     </div>
                 </div>
-                <div class="fade-up">
-                    <p class="section-tag">Our Founder</p>
-                    <h2 class="section-title">A Heart for the<br>Next Generation</h2>
-                    <blockquote>"Our vision is for a remnant generation of children who have chosen to GROW in the knowledge of God — to Go to church, Read the Bible and pray, Obey the Word of God, and Witness to other children."</blockquote>
-                    <p class="section-sub">Beatrice Atieno Ofwona founded LuvWay Kenya in 2016 with a burning conviction that the church must urgently address the spiritual vacuum in the lives of children across Kenya. She has personally trained over 350 teachers, pioneered
-                        Bible clubs in Nairobi, Mombasa, Kiambu and Kilifi, and continues to expand the vision to all 47 counties.</p>
-                    <p class="section-sub" style="margin-top:1rem">With a 10-year curriculum developed from hands-on ministry, Beatrice leads a team that feeds, teaches and mentors thousands of children each year — Several Bible clubs at a time.</p>
-                    <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
-                        <a href="https://wa.me/254732994900" target="_blank" class="btn-primary">Connect with Beatrice</a>
-                        <a href="https://www.youtube.com/live/EkNqCC9akxE?si=-QWmjBVpzEMojJdU" target="_blank" class="btn-secondary">Lift Jesus Higher.🙏 <br>
-                        <span> on youtube </span>
 
-                    </a>
-                    </div>
-                    <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
-                        <a href="https://www.youtube.com/@Neema-w7t" target="_blank" class="btn-secondary">View Her Youtube Channel</a>
-                    </div>
-                </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section id="contact" class="contact-section">
-            <div class="fade-up" style="text-align:center; margin-bottom:3rem;">
-                <p class="section-tag">Get Involved</p>
-                <h2 class="section-title">Partner With Us</h2>
-                <p class="section-sub" style="margin:0 auto">Whether you want to donate, volunteer, pray or partner — we would love to hear from you. Every contribution changes a child's life.</p>
-            </div>
-            <div class="contact-grid">
-                <div class="fade-up">
-                    <h3 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:0.5rem;">Contact Information</h3>
-                    <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1rem;">Reach us directly through any of these channels.</p>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <div class="contact-icon ci-phone">📞</div>
-                            <div>
-                                <h4>Phone</h4>
-                                <a href="tel:+254732994900">+254 732 994 900</a><br>
-                                <a href="tel:+254742339580">+254 742 339 580</a>
+                <div class="contact-panel-wrapper" style="margin-top:1.5rem;">
+                    <button class="contact-panel-toggle" onclick="togglePanel(this)">
+                        <span>💛 Donate & Support LuvWay Kenya</span>
+                        <span class="toggle-arrow">▼</span>
+                    </button>
+                    <div class="contact-panel">
+                        <div class="contact-panel-inner">
+                            <div class="donate-card">
+                                <h3>Support via WhatsApp</h3>
+                                <p>Send us a message on WhatsApp to discuss how you can donate, sponsor a child, or support a Bible Club. All amounts make a difference.</p>
+                                <a href="https://wa.me/254732994900?text=Hello%2C%20I%20would%20like%20to%20support%20LuvWay%20Kenya!" target="_blank" class="donate-wa-btn">
+                                    <span>💬</span> Chat to Donate
+                                </a>
+                            </div>
+                            <div style="padding:1rem; background:var(--light-gray); border-radius:10px;">
+                                <h4 style="margin-bottom:0.5rem; font-size:0.95rem;">What your support covers:</h4>
+                                <ul style="list-style:none; display:flex; flex-direction:column; gap:0.4rem;">
+                                    <li style="font-size:0.88rem; color:var(--text-muted);">📚 Curriculum materials for Bible clubs</li>
+                                    <li style="font-size:0.88rem; color:var(--text-muted);">🍲 Feeding programs (rice & beans per session)</li>
+                                    <li style="font-size:0.88rem; color:var(--text-muted);">👩‍🏫 Teacher stipends & volunteer support</li>
+                                    <li style="font-size:0.88rem; color:var(--text-muted);">🎉 Yearly events: VBS, talent shows, Fun Day</li>
+                                    <li style="font-size:0.88rem; color:var(--text-muted);">🩹 Sanitary pads for girls in the program</li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon ci-email">✉️</div>
-                            <div>
-                                <h4>Email</h4>
-                                <a href="mailto:luvwayke22@gmail.com">luvwayke22@gmail.com</a><br>
-                                <a href="mailto:xlucylina84@gmail.com">xlucylina84@gmail.com</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon ci-wa">💬</div>
-                            <div>
-                                <h4>WhatsApp</h4>
-                                <a href="https://wa.me/254732994900" target="_blank">Chat on WhatsApp → +254 732 994 900</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Toggle Panel -->
-                    <div class="contact-panel-wrapper" style="margin-top:1.5rem;">
-                        <button class="contact-panel-toggle" onclick="togglePanel(this)">
-          <span>💛 Donate & Support LuvWay Kenya</span>
-          <span class="toggle-arrow">▼</span>
-        </button>
-                        <div class="contact-panel">
-                            <div class="contact-panel-inner">
-                                <div class="donate-card">
-                                    <h3>Support via WhatsApp</h3>
-                                    <p>Send us a message on WhatsApp to discuss how you can donate, sponsor a child, or support a Bible Club. All amounts make a difference.</p>
-                                    <a href="https://wa.me/254732994900?text=Hello%2C%20I%20would%20like%20to%20support%20LuvWay%20Kenya!" target="_blank" class="donate-wa-btn">
-                                        <span>💬</span> Chat to Donate
-                                    </a>
-                                </div>
-                                <div style="padding:1rem; background:var(--light-gray); border-radius:10px;">
-                                    <h4 style="margin-bottom:0.5rem; font-size:0.95rem;">What your support covers:</h4>
-                                    <ul style="list-style:none; display:flex; flex-direction:column; gap:0.4rem;">
-                                        <li style="font-size:0.88rem; color:var(--text-muted);">📚 Curriculum materials for Bible clubs</li>
-                                        <li style="font-size:0.88rem; color:var(--text-muted);">🍲 Feeding programs (rice & beans per session)</li>
-                                        <li style="font-size:0.88rem; color:var(--text-muted);">👩‍🏫 Teacher stipends & volunteer support</li>
-                                        <li style="font-size:0.88rem; color:var(--text-muted);">🎉 Yearly events: VBS, talent shows, Fun Day</li>
-                                        <li style="font-size:0.88rem; color:var(--text-muted);">🩹 Sanitary pads for girls in the program</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="fade-up">
-                    <h3 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:1.5rem;">Send Us a Message</h3>
-                    <div class="contact-form">
-                        <input type="text" placeholder="Your Full Name">
-                        <input type="email" placeholder="Your Email Address">
-                        <input type="text" placeholder="Subject">
-                        <textarea rows="5" placeholder="Your message..."></textarea>
-                        <button onclick="handleFormSubmit(event)">Send Message →</button>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- FOOTER -->
-        <footer>
-            <div class="footer-grid">
-                <div>
-                    <img src="assets/images/luvway_logo.png" alt="LuvWay Kenya">
-                    <p>Changing Lives, Inspiring Possibilities. A children's ministry dedicated to the spiritual, physical and emotional growth of children across Kenya since 2016.</p>
-                </div>
-                <div>
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#programs">Programs</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#testimonials">Stories</a></li>
-                        <li><a href="#founder">Our Founder</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><a href="tel:+254732994900">+254 732 994 900</a></li>
-                        <li><a href="tel:+254742339580">+254 742 339 580</a></li>
-                        <li><a href="mailto:luvwayke22@gmail.com">luvwayke22@gmail.com</a></li>
-                        <li><a href="https://wa.me/254732994900" target="_blank">WhatsApp Us</a></li>
-                    </ul>
+            <div class="fade-up">
+                <h3 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:1.5rem;">Send Us a Message</h3>
+                <div class="contact-form">
+                    <input type="text" placeholder="Your Full Name">
+                    <input type="email" placeholder="Your Email Address">
+                    <input type="text" placeholder="Subject">
+                    <textarea rows="5" placeholder="Your message..."></textarea>
+                    <button onclick="handleFormSubmit(event)">Send Message →</button>
                 </div>
             </div>
-            <div class="footer-rainbow"></div>
-            <div class="footer-bottom">
-                <p>© 2026 LuvWay Kenya. All rights reserved. Built with love for the children of Kenya.</p>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <img src="assets/images/luvway_logo.png" alt="LuvWay Kenya">
+                <p>Changing Lives, Inspiring Possibilities. A children's ministry dedicated to the spiritual, physical and emotional growth of children across Kenya since 2016.</p>
             </div>
-        </footer>
-
-        <!-- Floating Get Involved Button -->
-        <a href="get-involved.html" class="fab-involve" aria-label="Get Involved">
-            <span><img src="assets/images/favicon.ico" alt="Small Icon"></span>
-            <span>Get Involved</span>
-        </a>
-
-        <style>
-            .fab-involve {
-                position: fixed;
-                bottom: 2rem;
-                right: 2rem;
-                z-index: 900;
-                background: linear-gradient(135deg, var(--magenta), var(--orange));
-                color: #fff;
-                text-decoration: none;
-                border-radius: 50px;
-                padding: 0.85rem 1.5rem;
-                display: flex;
-                align-items: center;
-                gap: 0.6rem;
-                font-family: 'DM Sans', sans-serif;
-                font-weight: 700;
-                font-size: 0.95rem;
-                box-shadow: 0 8px 30px rgba(212, 0, 106, 0.4);
-                opacity: 0;
-                transform: translateY(20px) scale(0.9);
-                animation: fabPop 0.5s cubic-bezier(0.22, 1, 0.36, 1) 1.2s forwards;
-                transition: transform 0.25s, box-shadow 0.25s;
-            }
-            
-            @keyframes fabPop {
-                to {
-                    opacity: 1;
-                    transform: translateY(0) scale(1);
-                }
-            }
-            
-            .fab-involve:hover {
-                transform: translateY(-4px) scale(1.04);
-                box-shadow: 0 14px 40px rgba(212, 0, 106, 0.5);
-            }
-            
-            @media (max-width: 600px) {
-                .fab-involve {
-                    bottom: 1.2rem;
-                    right: 1.2rem;
-                    padding: 0.75rem 1.2rem;
-                    font-size: 0.88rem;
-                }
-            }
-        </style>
-
-        <script>
-            function runIntro() {
-                const screen = document.getElementById('intro-screen');
-                const logo = document.getElementById('logo-wrap');
-                const growWrap = document.getElementById('grow-wrap');
-                const letters = ['lG', 'lR', 'lO', 'lW'];
-                const tagline = document.getElementById('intro-tagline');
-
-                // 1. Logo bounces in
-                setTimeout(() => {
-                    logo.style.opacity = '1';
-                    logo.style.transform = 'scale(1)';
-                }, 300);
-
-                // 2. Logo fades out
-                setTimeout(() => {
-                    logo.style.opacity = '0';
-                    logo.style.transform = 'scale(1.1)';
-                }, 1800);
-
-                // 3. G R O W letters pop in one by one
-                setTimeout(() => {
-                    growWrap.style.opacity = '1';
-                    letters.forEach((id, i) => {
-                        setTimeout(() => {
-                            document.getElementById(id).classList.add('show');
-                        }, i * 280);
-                    });
-                }, 2600);
-
-                // 4. Tagline fades in
-                setTimeout(() => {
-                    tagline.style.opacity = '1';
-                }, 3900);
-
-                // 5. Whole intro fades out — reveals your site
-                setTimeout(() => {
-                    screen.style.opacity = '0';
-                    setTimeout(() => {
-                        screen.style.display = 'none';
-                    }, 800);
-                }, 5200);
-            }
-
-            runIntro();
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="curriculum.html">Curriculum</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#testimonials">Stories</a></li>
+                    <li><a href="#founder">Our Founder</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+254732994900">+254 732 994 900</a></li>
+                    <li><a href="tel:+254742339580">+254 742 339 580</a></li>
+                    <li><a href="mailto:luvwayke22@gmail.com">luvwayke22@gmail.com</a></li>
+                    <li><a href="https://wa.me/254732994900" target="_blank">WhatsApp Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-rainbow"></div>
+        <div class="footer-bottom">
+            <p>© 2026 LuvWay Kenya. All rights reserved. Built with love for the children of Kenya.</p>
+        </div>
+    </footer>
 
 
+    <!-- Floating Get Involved Button -->
+    <a href="get-involved.html" class="fab-involve" aria-label="Get Involved">
+        <span><img src="assets/images/favicon.ico" alt=""></span>
+        <span>Get Involved</span>
+    </a>
 
-            // Scroll animations
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(e => {
-                    if (e.isIntersecting) {
-                        e.target.classList.add('visible');
-                    }
+
+    <script>
+        /* ─── INTRO ANIMATION ─── */
+        function runIntro() {
+            const screen = document.getElementById('intro-screen');
+            const logo = document.getElementById('logo-wrap');
+            const growWrap = document.getElementById('grow-wrap');
+            const letters = ['lG', 'lR', 'lO', 'lW'];
+            const tagline = document.getElementById('intro-tagline');
+
+            setTimeout(() => { logo.style.opacity = '1'; logo.style.transform = 'scale(1)'; }, 300);
+            setTimeout(() => { logo.style.opacity = '0'; logo.style.transform = 'scale(1.1)'; }, 1800);
+            setTimeout(() => {
+                growWrap.style.opacity = '1';
+                letters.forEach((id, i) => {
+                    setTimeout(() => { document.getElementById(id).classList.add('show'); }, i * 280);
                 });
-            }, {
-                threshold: 0.1
+            }, 2600);
+            setTimeout(() => { tagline.style.opacity = '1'; }, 3900);
+            setTimeout(() => {
+                screen.style.opacity = '0';
+                setTimeout(() => { screen.style.display = 'none'; }, 800);
+            }, 5200);
+        }
+        runIntro();
+
+
+        /* ─── HAMBURGER NAV TOGGLE ─── */
+        const hamburger = document.getElementById('hamburger');
+        const navLinks  = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', function () {
+            const isOpen = navLinks.classList.toggle('open');
+            hamburger.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close menu when any nav link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
             });
-            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        });
 
-            // Gallery lightbox
-            const galleryImages = [
-                'gallery_1', 'gallery_2', 'gallery_3', 'gallery_4', 'gallery_5',
-                'gallery_6', 'gallery_7', 'gallery_8', 'gallery_9', 'gallery_10', 'gallery_11',
-                'activities_12', 'activities_13', 'activities_14', 'activities_15', 'activities_16',
-                'activities_17', 'activities_18', 'activities_19', 'activities_20', 'activities_21',
-                'activities_22', 'activities_23', 'activities_24', 'activities_25', 'activities_26', 'activities_27'
-            ];
-            let currentLb = 0;
-
-            function openLightbox(i) {
-                currentLb = i;
-                document.getElementById('lb-img').src = 'assets/images/' + galleryImages[i] + '.jpg';
-                document.getElementById('lightbox').classList.add('active');
-                document.body.style.overflow = 'hidden';
+        // Close menu when clicking outside
+        document.addEventListener('click', function (e) {
+            if (!nav.contains(e.target) && navLinks.classList.contains('open')) {
+                navLinks.classList.remove('open');
+                hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
             }
+        });
 
-            function closeLightbox() {
-                document.getElementById('lightbox').classList.remove('active');
-                document.body.style.overflow = '';
-            }
+        const nav = document.querySelector('nav');
 
-            function lbNav(dir) {
-                currentLb = (currentLb + dir + galleryImages.length) % galleryImages.length;
-                document.getElementById('lb-img').src = 'assets/images/' + galleryImages[currentLb] + '.jpg';
-            }
-            document.getElementById('lightbox').addEventListener('click', function(e) {
-                if (e.target === this) closeLightbox();
-            });
-            document.addEventListener('keydown', e => {
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowRight') lbNav(1);
-                if (e.key === 'ArrowLeft') lbNav(-1);
-            });
 
-            // Toggle panel
-            function togglePanel(btn) {
-                const panel = btn.nextElementSibling;
-                const arrow = btn.querySelector('.toggle-arrow');
-                panel.classList.toggle('open');
-                arrow.classList.toggle('open');
-            }
+        /* ─── SCROLL ANIMATIONS ─── */
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-            // Form submit
-            function handleFormSubmit(e) {
-                e.preventDefault();
-                const btn = e.target;
-                btn.textContent = '✓ Message Sent!';
-                btn.style.background = 'var(--green)';
-                setTimeout(() => {
-                    btn.textContent = 'Send Message →';
-                    btn.style.background = '';
-                }, 3000);
-            }
-        </script>
-    </body>
 
+        /* ─── GALLERY LIGHTBOX ─── */
+        const galleryImages = [
+            'gallery_1', 'gallery_2', 'gallery_3', 'gallery_4', 'gallery_5',
+            'gallery_6', 'gallery_7', 'gallery_8', 'gallery_9', 'gallery_10', 'gallery_11',
+            'activities_12', 'activities_13', 'activities_14', 'activities_15', 'activities_16',
+            'activities_17', 'activities_18', 'activities_19', 'activities_20', 'activities_21',
+            'activities_22', 'activities_23', 'activities_24', 'activities_25', 'activities_26', 'activities_27'
+        ];
+        let currentLb = 0;
+
+        function openLightbox(i) {
+            currentLb = i;
+            document.getElementById('lb-img').src = 'assets/images/' + galleryImages[i] + '.jpg';
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function lbNav(dir) {
+            currentLb = (currentLb + dir + galleryImages.length) % galleryImages.length;
+            document.getElementById('lb-img').src = 'assets/images/' + galleryImages[currentLb] + '.jpg';
+        }
+
+        document.getElementById('lightbox').addEventListener('click', function (e) {
+            if (e.target === this) closeLightbox();
+        });
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') lbNav(1);
+            if (e.key === 'ArrowLeft') lbNav(-1);
+        });
+
+
+        /* ─── TOGGLE PANEL ─── */
+        function togglePanel(btn) {
+            const panel = btn.nextElementSibling;
+            const arrow = btn.querySelector('.toggle-arrow');
+            panel.classList.toggle('open');
+            arrow.classList.toggle('open');
+        }
+
+
+        /* ─── FORM SUBMIT ─── */
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const btn = e.target;
+            btn.textContent = '✓ Message Sent!';
+            btn.style.background = 'var(--green)';
+            setTimeout(() => {
+                btn.textContent = 'Send Message →';
+                btn.style.background = '';
+            }, 3000);
+        }
+    </script>
+
+</body>
 </html>
