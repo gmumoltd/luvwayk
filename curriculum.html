@@ -576,6 +576,13 @@
 
 <body>
 
+    <!-- Backdrop -->
+    <div class="page-backdrop" onclick="goBack()"></div>
+    <!-- Back button -->
+    <a href="index.html" class="back-btn" id="backBtn">
+        ← Back to Site
+    </a>
+
     <!-- HERO -->
     <div class="hero">
         <div class="hero-inner">
@@ -1210,6 +1217,16 @@
                 lbIndex++;
                 renderLightbox();
             }
+        });
+
+        // ─── Go back ─────────────────────────────────────────────────
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+
+        // ─── ESC key to go back ───────────────────────────────────────
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') goBack();
         });
     </script>
 </body>
